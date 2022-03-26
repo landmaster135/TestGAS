@@ -46,7 +46,7 @@ See [getting-started]() for more examples.
 
 # Features
 
-- You won't lose test functions to execute if you write those by test class.
+- You won't lose test-executing function if you write test functions as test class.
 - Require Apps Script runtime powered by V8.
 
 # Documentation

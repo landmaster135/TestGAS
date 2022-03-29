@@ -1,5 +1,3 @@
-# TestGAS
-
 <img width="40%" alt="TestGAS_logo_chr.png" src="img/TestGAS_logo_chr.png">
 
 # Introduction

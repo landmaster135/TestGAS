@@ -1,5 +1,7 @@
 # TestGAS
 
+<img width="50%" alt="TestGAS_logo_chr.png" src="img/TestGAS_logo_chr.png">
+
 # Introduction
 
 The `TestGAS` library makes it easy to write small tests on `Google Apps Script`, yet scales to support complex functional testing for applications and libraries.

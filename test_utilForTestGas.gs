@@ -4231,7 +4231,7 @@ class TestFuncsForName2{
  * @return {bool} isTestTerminated
 */
 function execute_Test_utilForTestGas(){
-  const funcName = "execute_test_utilGeneral";
+  const funcName = "execute_Test_utilForTestGas";
   console.log(`${funcName}: ${getStrRepeatedToMark("a")}`);
   const arrayErrorMayOccur = [
     "test_assertEquals_1_2"

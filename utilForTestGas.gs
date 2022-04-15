@@ -813,7 +813,7 @@ class TestGasExecutor{
 
     // console.log(errorStackArray);
     let errorStackToDisplay = errorStackArray.join("\n");
-    // console.log(`${funcName}: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`);
+    // console.log(`${funcName}: ${getStrRepeatedToMark("a")}: `);
     // console.log(failureTestFuncName);
     // console.log(errorStackToDisplay);
 

@@ -676,39 +676,42 @@ class TestGasExecutor{
   */
   assertError(func, funcArgs, expectedErrorName){
     let isExpectedErrorRaised = false;
-    let actualError = "";
-    let expectedError = expectedErrorName;
+    let actualErrorName = "";
     if(!isObjectType(func, "Function")){
       throw new TypeError("func must be Function type.");
     }
     if(!isObjectType(funcArgs, "Array")){
       throw new TypeError("funcArgs must be Array type.");
     }
-    if(isObjectType(expectedErrorName, "Undefined")){
-      expectedError = "undefined";
-    }
-    if(isObjectType(expectedErrorName, "Function")){
+    let expectedError = expectedErrorName;
+    if(!isObjectType(expectedErrorName, "Error")){
+      if(!isObjectType(expectedErrorName, "Function")){
+        throw new TypeError("expectedErrorName cannot be Error type.");
+      }
       expectedError = new expectedErrorName();
     }
     if(!isObjectType(expectedError, "Error")){
-      expectedErrorName = "expectedErrorName is not error type.";
-      throw new TypeError("expectedErrorName cannot be Error type because expectedErrorName is not Function type or Error type.");
+      throw new TypeError("expectedErrorName cannot be Error type.");
     }
     try{
       try{
+        console.log(func)
+        console.log(typeof(func))
+        console.log(funcArgs)
+        console.log(typeof(funcArgs))
         let actual = func(...funcArgs);
       }catch(error){
-        actualError = error.name;
-        if(error.name === expectedError.name){
+        actualErrorName = error.name;
+        if(actualErrorName === expectedError.name){
           isExpectedErrorRaised = true;
           return isExpectedErrorRaised;
         }
-        throw new AssertionError(`Expected exception hasn't thrown.`);
+        throw new AssertionError(`Expected exception isn't thrown but ${actualErrorName} is thrown.`);
       }
-      actualError = "no errors occured.";
-      throw new AssertionError(`Expected exception hasn't thrown.`);
+      actualErrorName = "no errors occured.";
+      throw new AssertionError(`Expected exception isn't thrown.`);
     }catch(e){
-      this.outputErrorStack(e, true, actualError, expectedError);
+      this.outputErrorStack(e, true, actualErrorName, expectedError.name);
       return isExpectedErrorRaised;
     }
   }
@@ -722,38 +725,37 @@ class TestGasExecutor{
   assertNotError(func, funcArgs, expectedErrorName){
     let isExpectedErrorNotRaised = false;
     let actualErrorName = "";
-    let expectedError = expectedErrorName;
     if(!isObjectType(func, "Function")){
       throw new TypeError("func must be Function type.");
     }
     if(!isObjectType(funcArgs, "Array")){
       throw new TypeError("funcArgs must be Array type.");
     }
-    if(isObjectType(expectedErrorName, "Undefined")){
-      expectedError = "undefined";
-    }
-    if(isObjectType(expectedErrorName, "Function")){
+    let expectedError = expectedErrorName;
+    if(!isObjectType(expectedErrorName, "Error")){
+      if(!isObjectType(expectedErrorName, "Function")){
+        throw new TypeError("expectedErrorName cannot be Error type.");
+      }
       expectedError = new expectedErrorName();
     }
     if(!isObjectType(expectedError, "Error")){
-      expectedErrorName = "expectedErrorName is not error type.";
-      throw new TypeError("expectedErrorName cannot be Error type because expectedErrorName is not Function type or Error type.");
+      throw new TypeError("expectedErrorName cannot be Error type.");
     }
     try{
       try{
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
-        if(error.name === expectedError.name){
+        if(actualErrorName === expectedError.name){
         // if(error instanceof expectedErrorName){
-          throw new AssertionError(`Expected exception has thrown. Expected exception, \"${expectedErrorName}\", is thrown.`);
+          throw new AssertionError(`Expected exception: ${expectedError.name} is thrown.`);
         }
-        // throw new AssertionError(`Expected exception hasn't thrown. But other exception has thrown.`);
+        // throw new AssertionError(`Expected exception isn't thrown. But other exception is thrown.`);
       }
       isExpectedErrorNotRaised = true;
       return isExpectedErrorNotRaised;
     }catch(e){
-      this.outputErrorStack(e, true, actualErrorName, expectedErrorName);
+      this.outputErrorStack(e, true, actualErrorName, expectedError.name);
       return isExpectedErrorNotRaised;
     }
   }

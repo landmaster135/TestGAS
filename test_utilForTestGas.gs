@@ -584,9 +584,12 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_assertError_61_1(){
+    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((00000000000000000000000000000")
     const func = TestFuncs.testFuncArgs;
     const funcArgs = [11, 223];
+    // const errorObj = new TypeError();
     const expectedErrorName = TypeError;
+    // const actual = tester.assertNotError(tester.assertError, [func, funcArgs, errorObj], errorObj);
     const actual = tester.assertNotError(tester.assertError, [func, funcArgs, expectedErrorName], TypeError);
     const expected = true;
     tester.assertEquals(actual, expected);
@@ -761,7 +764,9 @@ class Test_utilForTestGas{
   // abnoraml systems
   test_assertNotError_33_1(){
     const errorObj = new ReferenceError();
-    const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], errorObj], AssertionError);
+    const expectedErrorName = ReferenceError;
+    const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], expectedErrorName], AssertionError);
+    // const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], errorObj], AssertionError);
     // const expected = false;
     // tester.assertEquals(actual, expected);
     return true;
@@ -4024,18 +4029,31 @@ class TestFuncs{
    * @return {number} sum
   */
   static testFuncArgs(num1, num2){
-    if(typeof num1 === "undefined" || typeof num2 === "undefined"){
-      throw new TypeError("Arguments are required");
+    if(!isObjectType(num1, "Number")){
+      throw new TypeError("num1 must be Number type.");
     }
+    if(!isObjectType(num2, "Number")){
+      throw new TypeError("num2 must be Number type.");
+    }
+    // if(typeof num1 === "undefined" || typeof num2 === "undefined"){
+    //   throw new TypeError("Arguments are required");
+    // }
     const sum = num1 + num2;
     return sum;
   }
 
   /**
    * @param {string} sheetName
+   * @param {string} sheetId
    * @return {SpreadsheetApp.Sheet} sheet
   */
-  static testFuncSheet(sheetName, sheetId="") {
+  static testFuncSheet(sheetName, sheetId) {
+    if(!isObjectType(sheetName, "String")){
+      throw new TypeError("sheetName must be String type.");
+    }
+    if(!isObjectType(sheetId, "String")){
+      throw new TypeError("sheetId must be String type.");
+    }
     let workbook;
     if(sheetId === ""){
       workbook = SpreadsheetApp.getActive();
@@ -4232,7 +4250,7 @@ class TestFuncsForName2{
 */
 function execute_Test_utilForTestGas(){
   const funcName = "execute_Test_utilForTestGas";
-  console.log(`${funcName}: ${getStrRepeatedToMark("a")}`);
+  console.log(`${funcName}: aaaaaaaaaaaaaaaaaaaaaaaaaaaaa`);
   const arrayErrorMayOccur = [
     "test_assertEquals_1_2"
     ,"test_assertEquals_1_4"
@@ -4263,7 +4281,7 @@ function execute_Test_utilForTestGas(){
   ]
   // console.log(Test_utilForTestGas)
   let failureFuncs = tester.executeTestGas(Test_utilForTestGas, arrayErrorMayOccur);
-  console.log(`${funcName}: ${getStrRepeatedToMark("b")}`);
+  console.log(`${funcName}: bbbbbbbbbbbbbbbbbbbbbbbb`);
   return failureFuncs;
 }
 

@@ -6,7 +6,7 @@ function sample(x){
 
 class Test_sample{
   test_sample_1(){
-    tester1.assertEquals(sample(3), 4);
+    tester1.assertEquals(sample(2), 4);
   }
 }
 

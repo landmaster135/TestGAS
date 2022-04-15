@@ -674,7 +674,8 @@ class TestGasExecutor{
    * @param {Error} expectedErrorName
    * @return {boolean} isExpectedErrorRaised
   */
-  assertError(func, funcArgs, expectedErrorName){
+  // assertError(func, funcArgs, expectedErrorName){
+  assertError(func, funcArgs, expectedErrorName, willOutputError=true){
     let isExpectedErrorRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -693,12 +694,14 @@ class TestGasExecutor{
     if(!isObjectType(expectedError, "Error")){
       throw new TypeError("expectedErrorName cannot be Error type.");
     }
+    let test_var;
     try{
       try{
         console.log(func)
         console.log(typeof(func))
         console.log(funcArgs)
         console.log(typeof(funcArgs))
+        console.log(">>>>>>>>>>>>>>>>>>222222222222")
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
@@ -708,10 +711,23 @@ class TestGasExecutor{
         }
         throw new AssertionError(`Expected exception isn't thrown but ${actualErrorName} is thrown.`);
       }
-      actualErrorName = "no errors occured.";
+      actualErrorName = "no exceptions occured.";
+      console.log(">>>>>>>>>>>>>>>>>>444444444444444")
       throw new AssertionError(`Expected exception isn't thrown.`);
+      // throw new AssertionError(`Expected exception isn't thrown.`);
     }catch(e){
-      this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      console.log(">>>>>>>>>>>>>>>>>>55555555555555")
+      console.log(e)
+      console.log(actualErrorName)
+      console.log(expectedError.name)
+      console.log(this)
+      console.log(">>>>>>>>>>>>>>>>>>6666666666666666")
+      if(willOutputError){
+        test_var = this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      }
+      console.log(test_var)
+      console.log(">>>>>>>>>>>>>>>>>>7777777777777777")
+      isExpectedErrorRaised = false;
       return isExpectedErrorRaised;
     }
   }
@@ -722,7 +738,7 @@ class TestGasExecutor{
    * @param {Error} expectedErrorName
    * @return {boolean} isExpectedErrorRaised
   */
-  assertNotError(func, funcArgs, expectedErrorName){
+  assertNotError(func, funcArgs, expectedErrorName, willOutputError=true){
     let isExpectedErrorNotRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -746,6 +762,9 @@ class TestGasExecutor{
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
+        console.log(actualErrorName)
+        console.log(expectedError.name)
+        console.log(">>>>>>>>>>>>>>>>>>9999999999999")
         if(actualErrorName === expectedError.name){
         // if(error instanceof expectedErrorName){
           throw new AssertionError(`Expected exception: ${expectedError.name} is thrown.`);
@@ -755,7 +774,9 @@ class TestGasExecutor{
       isExpectedErrorNotRaised = true;
       return isExpectedErrorNotRaised;
     }catch(e){
-      this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      if(willOutputError){
+        this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      }
       return isExpectedErrorNotRaised;
     }
   }
@@ -769,14 +790,16 @@ class TestGasExecutor{
   */
   outputErrorStack(error, isErrorAssertion, actual="", expected=""){
     const funcName = "outputErrorStack";
-    // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     
     if(!isErrorType(error)){
       throw new TypeError("error must be Error type.");
     }
+    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
     if(!isObjectType(isErrorAssertion, "Boolean")){
       throw new TypeError("isErrorAssertion must be bool type.");
     }
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     let errorStackArray = error.stack.split("\n");
     const headWord = "at Object.";
     const tailWord = " [as value]";
@@ -821,6 +844,8 @@ class TestGasExecutor{
 
     this.failureFuncs.push(failureTestFuncName);
     this.failureStatements.push(errorStackToDisplay);
+
+    return true;
   }
   // -------------------- Assertions: End ---------------------------------------------------------------
 

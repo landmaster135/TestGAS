@@ -589,8 +589,12 @@ class Test_utilForTestGas{
     const funcArgs = [11, 223];
     // const errorObj = new TypeError();
     const expectedErrorName = TypeError;
+    const bindFunc1 = tester.assertNotError.bind(tester);
+    const bindFunc2 = tester.assertError.bind(tester);
+    const willOutputError = false;
     // const actual = tester.assertNotError(tester.assertError, [func, funcArgs, errorObj], errorObj);
-    const actual = tester.assertNotError(tester.assertError, [func, funcArgs, expectedErrorName], TypeError);
+    // const actual = tester.assertNotError(tester.assertError, [func, funcArgs, expectedErrorName], TypeError);
+    const actual = bindFunc1(bindFunc2, [func, funcArgs, expectedErrorName, willOutputError], TypeError);
     const expected = true;
     tester.assertEquals(actual, expected);
     return true;
@@ -598,6 +602,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_assertError_62_1(){
+    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((11111111111111111111111111111")
     const func = TestFuncs.testFuncArgs;
     const funcArgs = [11, 223];
     const expectedErrorName = TypeError;
@@ -719,9 +724,14 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_assertNotError_3_1(){
-    const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], ReferenceError], AssertionError);
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertNotError.bind(tester);
+    const willOutputError = false;
+    const actual = bindFunc1(bindFunc2, [TestFuncs.testFuncReferenceError, [1], ReferenceError, willOutputError], AssertionError);
+    // const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], ReferenceError], AssertionError);
     // const expected = false;
     // tester.assertEquals(actual, expected);
+
     return true;
   }
 
@@ -4035,9 +4045,6 @@ class TestFuncs{
     if(!isObjectType(num2, "Number")){
       throw new TypeError("num2 must be Number type.");
     }
-    // if(typeof num1 === "undefined" || typeof num2 === "undefined"){
-    //   throw new TypeError("Arguments are required");
-    // }
     const sum = num1 + num2;
     return sum;
   }

@@ -724,6 +724,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_assertNotError_3_1(){
+    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((2222222222222222222222222222222")
     const bindFunc1 = tester.assertError.bind(tester);
     const bindFunc2 = tester.assertNotError.bind(tester);
     const willOutputError = false;
@@ -737,6 +738,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_assertNotError_4_1(){
+    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((3333333333333333333333333333333")
     const args = [1];
     let actual = tester.assertNotError(TestFuncs.testFuncUriError, args, URIError);
     let expected = true;
@@ -775,7 +777,8 @@ class Test_utilForTestGas{
   test_assertNotError_33_1(){
     const errorObj = new ReferenceError();
     const expectedErrorName = ReferenceError;
-    const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], expectedErrorName], AssertionError);
+    const willOutputError = false;
+    const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], expectedErrorName, willOutputError], AssertionError);
     // const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], errorObj], AssertionError);
     // const expected = false;
     // tester.assertEquals(actual, expected);

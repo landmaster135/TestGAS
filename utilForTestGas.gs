@@ -724,6 +724,8 @@ class TestGasExecutor{
       console.log(">>>>>>>>>>>>>>>>>>6666666666666666")
       if(willOutputError){
         test_var = this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      }else{
+        throw e;
       }
       console.log(test_var)
       console.log(">>>>>>>>>>>>>>>>>>7777777777777777")
@@ -769,6 +771,7 @@ class TestGasExecutor{
         // if(error instanceof expectedErrorName){
           throw new AssertionError(`Expected exception: ${expectedError.name} is thrown.`);
         }
+        console.log(">>>>>>>>>>>>>>>>>>10101010101010")
         // throw new AssertionError(`Expected exception isn't thrown. But other exception is thrown.`);
       }
       isExpectedErrorNotRaised = true;
@@ -776,6 +779,8 @@ class TestGasExecutor{
     }catch(e){
       if(willOutputError){
         this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      }else{
+        throw e;
       }
       return isExpectedErrorNotRaised;
     }

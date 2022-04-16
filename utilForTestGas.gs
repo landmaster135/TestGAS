@@ -642,7 +642,7 @@ class TestGasExecutor{
    * @param {T[]} expected
    * @return {boolean} isPassedFlag
   */
-  assertEqualsArrayItems(actual, expected){
+  assertEqualsArrayItems(actual, expected, willOutputErrorToReport=true){
     try{
       if(actual.length !== expected.length){
         throw new AssertionError("Actual length is not equal to Expected length.")
@@ -656,7 +656,12 @@ class TestGasExecutor{
         }
       }
     }catch(e){
-      this.outputErrorStack(e, false, actual, expected);
+      // this.outputErrorStack(e, false, actual, expected);
+      if(willOutputErrorToReport){
+        this.outputErrorStack(e, false, actual, expected);
+      }else{
+        throw e;
+      }
       return false;
     }
     return true;

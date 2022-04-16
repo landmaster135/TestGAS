@@ -1030,9 +1030,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_1_2(){
     const array1 = ["ad", "er", "io", "rt"];
     const array2 = ["ad", "er", "io", "yt"];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1050,9 +1052,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_1_4(){
     const array1 = [1, 3, 4, 6, 8];
     const array2 = [1, 6, 4, 3, 8];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1070,9 +1074,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_2_2(){
     const array1 = ["a", 2, 3];
     const array2 = ["a", 4, "f"];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1080,9 +1086,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_2_3(){
     const array1 = ["a", 2, 3];
     const array2 = ["a", 4, "f"];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1090,9 +1098,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_2_4(){
     const array1 = ["1", 2, 3];
     const array2 = [1, 2, 3];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1100,9 +1110,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_2_5(){
     const array1 = ["", "b", "c", "d", "", "f"];
     const array2 = ["a", "b", "", "", "", "f"];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1110,9 +1122,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_3_1(){
     const array1 = ["ad", "er", "io"];
     const array2 = ["ad", "er", "io", "yt"];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1120,9 +1134,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_3_2(){
     const array1 = [];
     const array2 = ["1", "2", "3"];
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -1130,10 +1146,11 @@ class Test_utilForTestGas{
   test_assertEqualsArrayItems_3_3(){
     const array1 = ["1", "2", "3"];
     const array2 = [];
-    // tester.assertError(tester.assertEqualsArrayItems, [array1, array2], AssertionError);
-    const actual = tester.assertEqualsArrayItems(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayItems.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -4307,15 +4324,15 @@ function execute_Test_utilForTestGas(){
     // , "test_assertEqualsArrayLength_2_4"
     // , "test_assertEqualsArrayLength_3_2"
     // , "test_assertEqualsArrayLength_3_3"
-    , "test_assertEqualsArrayItems_1_2"
-    , "test_assertEqualsArrayItems_1_4"
-    , "test_assertEqualsArrayItems_2_2"
-    , "test_assertEqualsArrayItems_2_3"
-    , "test_assertEqualsArrayItems_2_4"
-    , "test_assertEqualsArrayItems_2_5"
-    , "test_assertEqualsArrayItems_3_1"
-    , "test_assertEqualsArrayItems_3_2"
-    , "test_assertEqualsArrayItems_3_3"
+    // , "test_assertEqualsArrayItems_1_2"
+    // , "test_assertEqualsArrayItems_1_4"
+    // , "test_assertEqualsArrayItems_2_2"
+    // , "test_assertEqualsArrayItems_2_3"
+    // , "test_assertEqualsArrayItems_2_4"
+    // , "test_assertEqualsArrayItems_2_5"
+    // , "test_assertEqualsArrayItems_3_1"
+    // , "test_assertEqualsArrayItems_3_2"
+    // , "test_assertEqualsArrayItems_3_3"
   ]
   // console.log(Test_utilForTestGas)
   let failureFuncs = tester.executeTestGas(Test_utilForTestGas, arrayErrorMayOccur);

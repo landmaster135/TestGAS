@@ -427,7 +427,7 @@ class TestGasExecutor{
     if(judgeArrayIndex < 0){
       throw new RangeError("judgeArrayIndex must be more than or equal to 0.");
     }
-    arrays = this.removeDuplicatedItems(arrays, judgeArrayIndex); // ＜ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー重複削除処理
+    arrays = this.removeDuplicatedItems(arrays, judgeArrayIndex);
     
     let removedCount = 0;
     let removedArrays = this.initializeArrays(arrays.length);
@@ -589,7 +589,8 @@ class TestGasExecutor{
    * @param {T} expected
    * @return {boolean} isPassedFlag
   */
-  assertEquals(actual, expected){
+  // assertEquals(actual, expected){
+  assertEquals(actual, expected, willOutputErrorToReport=true){
     try{
       if(typeof actual === "undefined" || typeof expected === "undefined"){
         throw new TypeError("Actual value or Expected value is \"undefined\".");
@@ -598,7 +599,12 @@ class TestGasExecutor{
         throw new AssertionError("Actual value is not equal to Expected value.");
       }
     }catch(e){
-      this.outputErrorStack(e, false, actual, expected);
+      // this.outputErrorStack(e, false, actual, expected);
+      if(willOutputErrorToReport){
+        this.outputErrorStack(e, false, actual, expected);
+      }else{
+        throw e;
+      }
       return false;
     }
     return true;
@@ -675,7 +681,7 @@ class TestGasExecutor{
    * @return {boolean} isExpectedErrorRaised
   */
   // assertError(func, funcArgs, expectedErrorName){
-  assertError(func, funcArgs, expectedErrorName, willOutputError=true){
+  assertError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
     let isExpectedErrorRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -697,11 +703,6 @@ class TestGasExecutor{
     let test_var;
     try{
       try{
-        console.log(func)
-        console.log(typeof(func))
-        console.log(funcArgs)
-        console.log(typeof(funcArgs))
-        console.log(">>>>>>>>>>>>>>>>>>222222222222")
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
@@ -712,23 +713,14 @@ class TestGasExecutor{
         throw new AssertionError(`Expected exception isn't thrown but ${actualErrorName} is thrown.`);
       }
       actualErrorName = "no exceptions occured.";
-      console.log(">>>>>>>>>>>>>>>>>>444444444444444")
       throw new AssertionError(`Expected exception isn't thrown.`);
       // throw new AssertionError(`Expected exception isn't thrown.`);
     }catch(e){
-      console.log(">>>>>>>>>>>>>>>>>>55555555555555")
-      console.log(e)
-      console.log(actualErrorName)
-      console.log(expectedError.name)
-      console.log(this)
-      console.log(">>>>>>>>>>>>>>>>>>6666666666666666")
-      if(willOutputError){
+      if(willOutputErrorToReport){
         test_var = this.outputErrorStack(e, true, actualErrorName, expectedError.name);
       }else{
         throw e;
       }
-      console.log(test_var)
-      console.log(">>>>>>>>>>>>>>>>>>7777777777777777")
       isExpectedErrorRaised = false;
       return isExpectedErrorRaised;
     }
@@ -740,7 +732,7 @@ class TestGasExecutor{
    * @param {Error} expectedErrorName
    * @return {boolean} isExpectedErrorRaised
   */
-  assertNotError(func, funcArgs, expectedErrorName, willOutputError=true){
+  assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
     let isExpectedErrorNotRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -764,20 +756,15 @@ class TestGasExecutor{
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
-        console.log(actualErrorName)
-        console.log(expectedError.name)
-        console.log(">>>>>>>>>>>>>>>>>>9999999999999")
         if(actualErrorName === expectedError.name){
-        // if(error instanceof expectedErrorName){
           throw new AssertionError(`Expected exception: ${expectedError.name} is thrown.`);
         }
-        console.log(">>>>>>>>>>>>>>>>>>10101010101010")
         // throw new AssertionError(`Expected exception isn't thrown. But other exception is thrown.`);
       }
       isExpectedErrorNotRaised = true;
       return isExpectedErrorNotRaised;
     }catch(e){
-      if(willOutputError){
+      if(willOutputErrorToReport){
         this.outputErrorStack(e, true, actualErrorName, expectedError.name);
       }else{
         throw e;
@@ -795,16 +782,13 @@ class TestGasExecutor{
   */
   outputErrorStack(error, isErrorAssertion, actual="", expected=""){
     const funcName = "outputErrorStack";
-    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     
     if(!isErrorType(error)){
       throw new TypeError("error must be Error type.");
     }
-    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
     if(!isObjectType(isErrorAssertion, "Boolean")){
       throw new TypeError("isErrorAssertion must be bool type.");
     }
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     let errorStackArray = error.stack.split("\n");
     const headWord = "at Object.";
     const tailWord = " [as value]";

@@ -10,11 +10,7 @@ class Test_utilForTestGas{
   test_assertEquals_1_1(){
     const var1 = 3; 
     const var2 = 3;
-    const actual = tester.assertEquals(var1, var2);
-    const expected = true;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    tester.assertEquals(var1, var2);
     return true;
   }
 
@@ -22,11 +18,11 @@ class Test_utilForTestGas{
   test_assertEquals_1_2(){
     const var1 = 3;
     const var2 = 4;
-    const actual = tester.assertEquals(var1, var2);
-    const expected = false;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    const willOutputErrorToReport = false;
+    const funcArgs = [var1, var2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEquals.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -34,11 +30,7 @@ class Test_utilForTestGas{
   test_assertEquals_1_3(){
     const var1 = "abc";
     const var2 = "abc";
-    const actual = tester.assertEquals(var1, var2);
-    const expected = true;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    tester.assertEquals(var1, var2);
     return true;
   }
 
@@ -46,11 +38,11 @@ class Test_utilForTestGas{
   test_assertEquals_1_4(){
     const var1 = "abc";
     const var2 = "abd";
-    const actual = tester.assertEquals(var1, var2);
-    const expected = false;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    const willOutputErrorToReport = false;
+    const funcArgs = [var1, var2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEquals.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -58,11 +50,7 @@ class Test_utilForTestGas{
   test_assertEquals_1_5(){
     const var1 = true;
     const var2 = true;
-    const actual = tester.assertEquals(var1, var2);
-    const expected = true;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    tester.assertEquals(var1, var2);
     return true;
   }
 
@@ -70,11 +58,11 @@ class Test_utilForTestGas{
   test_assertEquals_1_6(){
     const var1 = false;
     const var2 = false;
-    const actual = tester.assertEquals(var1, var2);
-    const expected = true;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    tester.assertEquals(var1, var2);
+    // const expected = true;
+    // if(actual !== expected){
+    //   throw new AssertionError("assertEquals error.")
+    // }
     return true;
   }
 
@@ -82,11 +70,11 @@ class Test_utilForTestGas{
   test_assertEquals_1_7(){
     const var1 = true;
     const var2 = false;
-    const actual = tester.assertEquals(var1, var2);
-    const expected = false;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    const willOutputErrorToReport = false;
+    const funcArgs = [var1, var2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEquals.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -94,11 +82,11 @@ class Test_utilForTestGas{
   test_assertEquals_1_8(){
     const var1 = false;
     const var2 = true;
-    const actual = tester.assertEquals(var1, var2);
-    const expected = false;
-    if(actual !== expected){
-      throw new AssertionError("assertEquals error.")
-    }
+    const willOutputErrorToReport = false;
+    const funcArgs = [var1, var2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEquals.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
     return true;
   }
 
@@ -584,17 +572,27 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_assertError_61_1(){
-    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((00000000000000000000000000000")
     const func = TestFuncs.testFuncArgs;
     const funcArgs = [11, 223];
-    // const errorObj = new TypeError();
     const expectedErrorName = TypeError;
     const bindFunc1 = tester.assertNotError.bind(tester);
     const bindFunc2 = tester.assertError.bind(tester);
     const willOutputError = false;
-    // const actual = tester.assertNotError(tester.assertError, [func, funcArgs, errorObj], errorObj);
-    // const actual = tester.assertNotError(tester.assertError, [func, funcArgs, expectedErrorName], TypeError);
     const actual = bindFunc1(bindFunc2, [func, funcArgs, expectedErrorName, willOutputError], TypeError);
+    const expected = true;
+    tester.assertEquals(actual, expected);
+    return true;
+  }
+
+  // noraml systems
+  test_assertError_61_2(){
+    const func = TestFuncs.testFuncArgs;
+    const funcArgs = [11, 223];
+    const errorObj = new TypeError();
+    const bindFunc1 = tester.assertNotError.bind(tester);
+    const bindFunc2 = tester.assertError.bind(tester);
+    const willOutputError = false;
+    const actual = bindFunc1(bindFunc2, [func, funcArgs, errorObj, willOutputError], TypeError);
     const expected = true;
     tester.assertEquals(actual, expected);
     return true;
@@ -602,7 +600,6 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_assertError_62_1(){
-    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((11111111111111111111111111111")
     const func = TestFuncs.testFuncArgs;
     const funcArgs = [11, 223];
     const expectedErrorName = TypeError;
@@ -722,23 +719,27 @@ class Test_utilForTestGas{
     return true;
   }
 
-  // abnoraml systems
+  // noraml systems
   test_assertNotError_3_1(){
-    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((2222222222222222222222222222222")
     const bindFunc1 = tester.assertError.bind(tester);
     const bindFunc2 = tester.assertNotError.bind(tester);
     const willOutputError = false;
     const actual = bindFunc1(bindFunc2, [TestFuncs.testFuncReferenceError, [1], ReferenceError, willOutputError], AssertionError);
-    // const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], ReferenceError], AssertionError);
-    // const expected = false;
-    // tester.assertEquals(actual, expected);
+    return true;
+  }
 
+  // noraml systems
+  test_assertNotError_3_2(){
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertNotError.bind(tester);
+    const errorObj = new ReferenceError();
+    const willOutputError = false;
+    const actual = bindFunc1(bindFunc2, [TestFuncs.testFuncReferenceError, [1], errorObj, willOutputError], AssertionError);
     return true;
   }
 
   // noraml systems
   test_assertNotError_4_1(){
-    console.log("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((3333333333333333333333333333333")
     const args = [1];
     let actual = tester.assertNotError(TestFuncs.testFuncUriError, args, URIError);
     let expected = true;
@@ -775,13 +776,17 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_assertNotError_33_1(){
-    const errorObj = new ReferenceError();
     const expectedErrorName = ReferenceError;
     const willOutputError = false;
     const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], expectedErrorName, willOutputError], AssertionError);
-    // const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], errorObj], AssertionError);
-    // const expected = false;
-    // tester.assertEquals(actual, expected);
+    return true;
+  }
+
+  // abnoraml systems
+  test_assertNotError_33_2(){
+    const errorObj = new ReferenceError();
+    const willOutputError = false;
+    const actual = tester.assertError(tester.assertNotError, [TestFuncs.testFuncReferenceError, [1], errorObj, willOutputError], AssertionError);
     return true;
   }
 
@@ -4262,11 +4267,11 @@ function execute_Test_utilForTestGas(){
   const funcName = "execute_Test_utilForTestGas";
   console.log(`${funcName}: aaaaaaaaaaaaaaaaaaaaaaaaaaaaa`);
   const arrayErrorMayOccur = [
-    "test_assertEquals_1_2"
-    ,"test_assertEquals_1_4"
-    , "test_assertEquals_1_7"
-    , "test_assertEquals_1_8"
-    , "test_assertEquals_2_1"
+    // "test_assertEquals_1_2"
+    // "test_assertEquals_1_4"
+    // "test_assertEquals_1_7"
+    // , "test_assertEquals_1_8"
+    "test_assertEquals_2_1"
     , "test_assertEquals_2_2"
     , "test_assertEquals_2_3"
     , "test_assertEquals_2_4"

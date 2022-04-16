@@ -816,9 +816,14 @@ class Test_utilForTestGas{
   test_assertEqualsArrayLength_1_2(){
     const array1 = [1, 2, 3];
     const array2 = [4, 6, 8, 9];
-    const actual = tester.assertEqualsArrayLength(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    // const actual = tester.assertEqualsArrayLength(array1, array2);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayLength.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
+    // const expected = false;
+    // tester.assertEquals(actual, expected);
     return true;
   }
 
@@ -836,9 +841,14 @@ class Test_utilForTestGas{
   test_assertEqualsArrayLength_2_2(){
     const array1 = ["ad", "er", "io", "rt"];
     const array2 = ["qwe", "rt", "uiok", "ikj", "ad"];
-    const actual = tester.assertEqualsArrayLength(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayLength.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
+    // const actual = tester.assertEqualsArrayLength(array1, array2);
+    // const expected = false;
+    // tester.assertEquals(actual, expected);
     return true;
   }
 
@@ -854,9 +864,14 @@ class Test_utilForTestGas{
   test_assertEqualsArrayLength_2_4(){
     const array1 = ["", "", "f"];
     const array2 = ["a", "b", "", "", "", "f"];
-    const actual = tester.assertEqualsArrayLength(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayLength.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
+    // const actual = tester.assertEqualsArrayLength(array1, array2);
+    // const expected = false;
+    // tester.assertEquals(actual, expected);
     return true;
   }
 
@@ -874,9 +889,14 @@ class Test_utilForTestGas{
   test_assertEqualsArrayLength_3_2(){
     const array1 = ["", "", "f"];
     const array2 = [];
-    const actual = tester.assertEqualsArrayLength(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayLength.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
+    // const actual = tester.assertEqualsArrayLength(array1, array2);
+    // const expected = false;
+    // tester.assertEquals(actual, expected);
     return true;
   }
 
@@ -884,9 +904,14 @@ class Test_utilForTestGas{
   test_assertEqualsArrayLength_3_3(){
     const array1 = [];
     const array2 = ["", "", "f"];
-    const actual = tester.assertEqualsArrayLength(array1, array2);
-    const expected = false;
-    tester.assertEquals(actual, expected);
+    const willOutputErrorToReport = false;
+    const funcArgs = [array1, array2, willOutputErrorToReport];
+    const bindFunc1 = tester.assertError.bind(tester);
+    const bindFunc2 = tester.assertEqualsArrayLength.bind(tester);
+    bindFunc1(bindFunc2, funcArgs, AssertionError);
+    // const actual = tester.assertEqualsArrayLength(array1, array2);
+    // const expected = false;
+    // tester.assertEquals(actual, expected);
     return true;
   }
 
@@ -4277,11 +4302,11 @@ function execute_Test_utilForTestGas(){
     // , "test_assertEquals_3_2"
     // , "test_assertEquals_3_3"
     // , "test_assertEquals_3_4"
-    , "test_assertEqualsArrayLength_1_2"
-    , "test_assertEqualsArrayLength_2_2"
-    , "test_assertEqualsArrayLength_2_4"
-    , "test_assertEqualsArrayLength_3_2"
-    , "test_assertEqualsArrayLength_3_3"
+    // , "test_assertEqualsArrayLength_1_2"
+    // , "test_assertEqualsArrayLength_2_2"
+    // , "test_assertEqualsArrayLength_2_4"
+    // , "test_assertEqualsArrayLength_3_2"
+    // , "test_assertEqualsArrayLength_3_3"
     , "test_assertEqualsArrayItems_1_2"
     , "test_assertEqualsArrayItems_1_4"
     , "test_assertEqualsArrayItems_2_2"

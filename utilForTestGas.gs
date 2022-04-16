@@ -589,7 +589,6 @@ class TestGasExecutor{
    * @param {T} expected
    * @return {boolean} isPassedFlag
   */
-  // assertEquals(actual, expected){
   assertEquals(actual, expected, willOutputErrorToReport=true){
     try{
       if(typeof actual === "undefined" || typeof expected === "undefined"){
@@ -615,7 +614,8 @@ class TestGasExecutor{
    * @param {any[]} expected
    * @return {boolean} isPassedFlag
   */
-  assertEqualsArrayLength(actual, expected){
+  // assertEqualsArrayLength(actual, expected){
+  assertEqualsArrayLength(actual, expected, willOutputErrorToReport=true){
     const funcName = "assertEqualsArrayLength";
     try{
       if(!isObjectType(actual, "Array") && !isObjectType(expected, "Array")){
@@ -625,7 +625,12 @@ class TestGasExecutor{
         throw new AssertionError("Actual length is not equal to Expected length.");
       }
     }catch(e){
-      this.outputErrorStack(e, false, actual.length, expected.length);
+      // this.outputErrorStack(e, false, actual.length, expected.length);
+      if(willOutputErrorToReport){
+        this.outputErrorStack(e, false, actual.length, expected.length);
+      }else{
+        throw e;
+      }
       return false;
     }
     return true;

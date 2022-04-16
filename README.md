@@ -34,9 +34,9 @@ TestGAS starts: "Test_sample"
 ====================================================== FAILURES ======================================================
 ______________________________________________ test_sample_1 ______________________________________________
 AssertionError: Actual value is not equal to Expected value.
-    at Object.test_sample_1 [as value] (aaaaa:9:13)
+    at Object.test_sample_1 [as value] (test_sample:9:13)
     at TestGasExecutor.executeTestGas (utilForTestGas:335:55)
-    at execute_Test_sample (aaaaa:14:30)
+    at execute_Test_sample (test_sample:14:30)
   actual  :  3
   expected:  4
 =================== 1 failed, 0 passed of all 1 tests in 0 seconds ===================

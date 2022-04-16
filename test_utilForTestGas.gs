@@ -4392,7 +4392,6 @@ function execute_Test_utilForTestGas(){
   const arrayErrorMayOccur = [
     "test_assertEquals_2_3"
     , "test_assertEquals_2_4"
-    // , "test_assertError_70_1"
   ]
   // console.log(Test_utilForTestGas)
   let failureFuncs = tester.executeTestGas(Test_utilForTestGas, arrayErrorMayOccur);

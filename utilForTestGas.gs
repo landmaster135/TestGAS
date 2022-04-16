@@ -387,7 +387,7 @@ class TestGasExecutor{
 
     const lengthOfRemovedArray = objToDisplay[this.keyOfRemovedArrays][0].length;
     if(lengthOfRemovedArray !== 0){
-      console.info(`=================== ${lengthOfRemovedArray} errors are ignored but inspected,${latterHalfOfResultStatement}===================`);
+      console.info(`=================== ${lengthOfRemovedArray} fails are inspected but ignored,${latterHalfOfResultStatement}===================`);
     }else{
       console.info(`===================${latterHalfOfResultStatement}===================`);
     }
@@ -427,7 +427,7 @@ class TestGasExecutor{
     if(judgeArrayIndex < 0){
       throw new RangeError("judgeArrayIndex must be more than or equal to 0.");
     }
-    arrays = this.removeDuplicatedItems(arrays, judgeArrayIndex); // ＜ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー重複削除処理
+    arrays = this.removeDuplicatedItems(arrays, judgeArrayIndex);
     
     let removedCount = 0;
     let removedArrays = this.initializeArrays(arrays.length);
@@ -587,18 +587,27 @@ class TestGasExecutor{
    * @template T
    * @param {T} actual
    * @param {T} expected
+   * @param {boolean} willOutputErrorToReport
    * @return {boolean} isPassedFlag
   */
-  assertEquals(actual, expected){
+  assertEquals(actual, expected, willOutputErrorToReport=true){
+    const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
       if(typeof actual === "undefined" || typeof expected === "undefined"){
         throw new TypeError("Actual value or Expected value is \"undefined\".");
       }
+      if(!isBoolean){
+        throw new TypeError("willOutputErrorToReport must be Boolean type.");
+      } 
       if(actual !== expected){
         throw new AssertionError("Actual value is not equal to Expected value.");
       }
     }catch(e){
-      this.outputErrorStack(e, false, actual, expected);
+      if(willOutputErrorToReport && isBoolean){
+        this.outputErrorStack(e, false, actual, expected);
+      }else{
+        throw e;
+      }
       return false;
     }
     return true;
@@ -607,19 +616,27 @@ class TestGasExecutor{
   /**
    * @param {any[]} actual
    * @param {any[]} expected
+   * @param {boolean} willOutputErrorToReport
    * @return {boolean} isPassedFlag
   */
-  assertEqualsArrayLength(actual, expected){
-    const funcName = "assertEqualsArrayLength";
+  assertEqualsArrayLength(actual, expected, willOutputErrorToReport=true){
+    const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
       if(!isObjectType(actual, "Array") && !isObjectType(expected, "Array")){
         throw new TypeError("Actual value and Expected value must be array.");
       }
+      if(!isBoolean){
+        throw new TypeError("willOutputErrorToReport must be Boolean type.");
+      } 
       if(actual.length !== expected.length){
         throw new AssertionError("Actual length is not equal to Expected length.");
       }
     }catch(e){
-      this.outputErrorStack(e, false, actual.length, expected.length);
+      if(willOutputErrorToReport && isBoolean){
+        this.outputErrorStack(e, false, actual.length, expected.length);
+      }else{
+        throw e;
+      }
       return false;
     }
     return true;
@@ -629,9 +646,11 @@ class TestGasExecutor{
    * @template T
    * @param {T[]} actual
    * @param {T[]} expected
+   * @param {boolean} willOutputErrorToReport
    * @return {boolean} isPassedFlag
   */
-  assertEqualsArrayItems(actual, expected){
+  assertEqualsArrayItems(actual, expected, willOutputErrorToReport=true){
+    const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
       if(actual.length !== expected.length){
         throw new AssertionError("Actual length is not equal to Expected length.")
@@ -640,12 +659,19 @@ class TestGasExecutor{
         if(isObjectType(actual[i], "Array") || isObjectType(expected[i], "Array")){
           throw new TypeError("Actual items and Expected items mustn't be array type.");
         }
+        if(!isBoolean){
+          throw new TypeError("willOutputErrorToReport must be Boolean type.");
+        } 
         if(actual[i] !== expected[i]){
           throw new AssertionError("Actual item is not equal to Expected item.");
         }
       }
     }catch(e){
-      this.outputErrorStack(e, false, actual, expected);
+      if(willOutputErrorToReport && isBoolean){
+        this.outputErrorStack(e, false, actual, expected);
+      }else{
+        throw e;
+      }
       return false;
     }
     return true;
@@ -672,9 +698,10 @@ class TestGasExecutor{
    * @param {Function} func
    * @param {any[]} funcArgs
    * @param {Error} expectedErrorName
+   * @param {boolean} willOutputErrorToReport
    * @return {boolean} isExpectedErrorRaised
   */
-  assertError(func, funcArgs, expectedErrorName){
+  assertError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
     let isExpectedErrorRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -693,12 +720,12 @@ class TestGasExecutor{
     if(!isObjectType(expectedError, "Error")){
       throw new TypeError("expectedErrorName cannot be Error type.");
     }
+    const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
+      if(!isBoolean){
+        throw new TypeError("willOutputErrorToReport must be Boolean type.");
+      }
       try{
-        console.log(func)
-        console.log(typeof(func))
-        console.log(funcArgs)
-        console.log(typeof(funcArgs))
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
@@ -708,10 +735,16 @@ class TestGasExecutor{
         }
         throw new AssertionError(`Expected exception isn't thrown but ${actualErrorName} is thrown.`);
       }
-      actualErrorName = "no errors occured.";
+      actualErrorName = "no exceptions occured.";
       throw new AssertionError(`Expected exception isn't thrown.`);
+      // throw new AssertionError(`Expected exception isn't thrown.`);
     }catch(e){
-      this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      if(willOutputErrorToReport && isBoolean){
+        this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      }else{
+        throw e;
+      }
+      isExpectedErrorRaised = false;
       return isExpectedErrorRaised;
     }
   }
@@ -720,9 +753,10 @@ class TestGasExecutor{
    * @param {Function} func
    * @param {any[]} funcArgs
    * @param {Error} expectedErrorName
+   * @param {boolean} willOutputErrorToReport
    * @return {boolean} isExpectedErrorRaised
   */
-  assertNotError(func, funcArgs, expectedErrorName){
+  assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
     let isExpectedErrorNotRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -741,13 +775,16 @@ class TestGasExecutor{
     if(!isObjectType(expectedError, "Error")){
       throw new TypeError("expectedErrorName cannot be Error type.");
     }
+    const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
+      if(!isBoolean){
+        throw new TypeError("willOutputErrorToReport must be Boolean type.");
+      }
       try{
         let actual = func(...funcArgs);
       }catch(error){
         actualErrorName = error.name;
         if(actualErrorName === expectedError.name){
-        // if(error instanceof expectedErrorName){
           throw new AssertionError(`Expected exception: ${expectedError.name} is thrown.`);
         }
         // throw new AssertionError(`Expected exception isn't thrown. But other exception is thrown.`);
@@ -755,7 +792,11 @@ class TestGasExecutor{
       isExpectedErrorNotRaised = true;
       return isExpectedErrorNotRaised;
     }catch(e){
-      this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      if(willOutputErrorToReport && isBoolean){
+        this.outputErrorStack(e, true, actualErrorName, expectedError.name);
+      }else{
+        throw e;
+      }
       return isExpectedErrorNotRaised;
     }
   }
@@ -769,7 +810,6 @@ class TestGasExecutor{
   */
   outputErrorStack(error, isErrorAssertion, actual="", expected=""){
     const funcName = "outputErrorStack";
-    // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     
     if(!isErrorType(error)){
       throw new TypeError("error must be Error type.");
@@ -821,6 +861,8 @@ class TestGasExecutor{
 
     this.failureFuncs.push(failureTestFuncName);
     this.failureStatements.push(errorStackToDisplay);
+
+    return true;
   }
   // -------------------- Assertions: End ---------------------------------------------------------------
 

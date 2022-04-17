@@ -231,32 +231,6 @@ class Test_utilForTestGas{
     return true;
   }
 
-  /**
-   * @description assert "TypeError: Cannot read property "getSheetByName" of null"
-   * @param {string} funcName
-   * @return {boolean} isPassedFlag
-  */
-  // noraml systems
-  test_assertError_2_1(){
-    const actual = tester.assertError(TestFuncs.testFuncSheet, [], TypeError);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
-
-  /**
-   * @description assert "TypeError: Cannot read property "getSheetByName" of null"
-   * @param {string} funcName
-   * @return {boolean} isPassedFlag
-  */
-  // noraml systems
-  test_assertError_2_2(){
-    const actual = tester.assertError(TestFuncs.testFuncSheet, ["テスト用シート"], TypeError);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
-
   // noraml systems
   test_assertError_3_1(){
     const actual = tester.assertError(TestFuncs.testFuncReferenceError, [], ReferenceError);
@@ -405,29 +379,7 @@ class Test_utilForTestGas{
     return true;
   }
 
-  /**
-   * @description assert "TypeError: Cannot read property "getSheetByName" of null"
-  */
-  // noraml systems
-  test_assertError_32_1(){
-    const errorObj = new TypeError();
-    const actual = tester.assertError(TestFuncs.testFuncSheet, [], errorObj);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
-
-  /**
-   * @description assert "TypeError: Cannot read property "getSheetByName" of null"
-  */
-  // noraml systems
-  test_assertError_32_2(){
-    const errorObj = new TypeError();
-    const actual = tester.assertError(TestFuncs.testFuncSheet, ["テスト用シート"], errorObj);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
+  
 
   // noraml systems
   test_assertError_33_1(){
@@ -724,14 +676,6 @@ class Test_utilForTestGas{
     tester.assertEquals(actual, expected);
     return true;
   }
-  
-  // noraml systems
-  test_assertNotError_2_1(){
-    const actual = tester.assertNotError(TestFuncs.testFuncSheet, ["テスト用シート", SHEET_ID_TEST], TypeError);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
 
   // noraml systems
   test_assertNotError_3_1(){
@@ -773,15 +717,6 @@ class Test_utilForTestGas{
     return true;
   }
 
-  // noraml systems
-  test_assertNotError_32_1(){
-    const errorObj = new TypeError();
-    const actual = tester.assertNotError(TestFuncs.testFuncSheet, ["テスト用シート", SHEET_ID_TEST], errorObj);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
-
   // abnoraml systems
   test_assertNotError_33_1(){
     const errorObj = new ReferenceError();
@@ -804,15 +739,6 @@ class Test_utilForTestGas{
   test_assertNotError_61_1(){
     const expectedErrorName = TypeError;
     const actual = tester.assertNotError(TestFuncs.testFuncArgs, [11, 223], expectedErrorName);
-    const expected = true;
-    tester.assertEquals(actual, expected);
-    return true;
-  }
-
-  // noraml systems
-  test_assertNotError_62_1(){
-    const expectedErrorName = TypeError;
-    const actual = tester.assertNotError(TestFuncs.testFuncSheet, ["テスト用シート", SHEET_ID_TEST], expectedErrorName);
     const expected = true;
     tester.assertEquals(actual, expected);
     return true;
@@ -2565,7 +2491,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_isObjectType_4_3(){
-    const var1 = {"test": 234};
+    const var1 = {test: 234};
     const type1 = "Object";
     const actual = isObjectType(var1, type1);
     const expected = true;
@@ -2620,6 +2546,16 @@ class Test_utilForTestGas{
       }
     }
     const var1 = ObjTest.objTestFunc;
+    const type1 = "Undefined";
+    const actual = isObjectType(var1, type1);
+    const expected = true;
+    tester.assertEquals(actual, expected);
+    return true;
+  }
+
+  // noraml systems
+  test_isObjectType_7_2(){
+    let var1;
     const type1 = "Undefined";
     const actual = isObjectType(var1, type1);
     const expected = true;
@@ -4178,28 +4114,6 @@ class TestFuncs{
     }
     const sum = num1 + num2;
     return sum;
-  }
-
-  /**
-   * @param {string} sheetName
-   * @param {string} sheetId
-   * @return {SpreadsheetApp.Sheet} sheet
-  */
-  static testFuncSheet(sheetName, sheetId) {
-    if(!isObjectType(sheetName, "String")){
-      throw new TypeError("sheetName must be String type.");
-    }
-    if(!isObjectType(sheetId, "String")){
-      throw new TypeError("sheetId must be String type.");
-    }
-    let workbook;
-    if(sheetId === ""){
-      workbook = SpreadsheetApp.getActive();
-    }else{
-      workbook = SpreadsheetApp.openById(sheetId);
-    }
-    const sheet = workbook.getSheetByName(sheetName);
-    return sheet;
   }
 
   /**

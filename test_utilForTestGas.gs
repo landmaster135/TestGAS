@@ -3,7 +3,7 @@
 /**
    * Test codes for utilities to test Google Apps Script.
 */
-// let tester = new TestGasExecutor();
+// let tester = new Executor();
 let tester = createExecutor();
 
 // class Test_utilForTestGas extends TestGasClass{
@@ -2804,7 +2804,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_removeArrayItemToDisplay_1_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -2828,7 +2828,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_removeArrayItemToDisplay_1_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [
       ["assertEquals_1_2"
         , "assertEquals_1_4"
@@ -2882,7 +2882,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_removeArrayItemToDisplay_1_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["banana", "orange"];
@@ -2905,7 +2905,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_removeArrayItemToDisplay_1_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["banana", "orange", "kiwi"];
@@ -2928,7 +2928,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_removeArrayItemToDisplay_1_5(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["pinapple", "dragonfruit"];
@@ -2951,7 +2951,7 @@ class Test_utilForTestGas{
 
   // semi-noraml systems
   test_removeArrayItemToDisplay_2_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = [];
@@ -2975,7 +2975,7 @@ class Test_utilForTestGas{
 
   // semi-noraml systems
   test_removeArrayItemToDisplay_2_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = [];
@@ -2999,7 +2999,7 @@ class Test_utilForTestGas{
 
   // semi-noraml systems
   test_removeArrayItemToDisplay_2_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = [];
     const array2 = [];
     const arrayForRemovingArray = [];
@@ -3023,7 +3023,7 @@ class Test_utilForTestGas{
 
   // semi-noraml systems
   test_removeArrayItemToDisplay_2_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = [];
     const array2 = [];
     const arrays = [array1, array2];
@@ -3046,7 +3046,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_3_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3058,7 +3058,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_3_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3070,7 +3070,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_3_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3082,7 +3082,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_3_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3094,7 +3094,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_3_5(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3106,7 +3106,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_3_6(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3118,7 +3118,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_4_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrayForRemovingArray = ["melon", "kiwi"];
     const arrays = "array";
     const judgeArrayIndex = 0;
@@ -3128,7 +3128,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_4_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrayForRemovingArray = ["melon", "kiwi"];
     const arrays = [];
     const judgeArrayIndex = 0;
@@ -3138,7 +3138,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_4_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const arrayForRemovingArray = ["melon", "kiwi"];
     const judgeArrayIndex = 0;
@@ -3148,7 +3148,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_4_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "lemon"];
     const array2 = ["banana", "grape", "strawberry"];
     const arrayForRemovingArray = ["melon", "kiwi"];
@@ -3160,7 +3160,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_4_5(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrayForRemovingArray = ["melon", "kiwi"];
     const arrays = null;
     const judgeArrayIndex = 0;
@@ -3170,14 +3170,14 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeArrayItemToDisplay_4_6(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.removeArrayItemToDisplay, [], TypeError);
     return true;
   }
 
   // noraml systems
   test_removeDuplicatedItems_1_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "melon", "kiwi", "melon", "lemon"];
     const array2 = ["banana", "grape", "strawberry", "banana", "orange"];
     const arrays = [array1, array2];
@@ -3193,7 +3193,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_removeDuplicatedItems_1_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3213,7 +3213,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana"];
     const array3 = ["melon", "orange"];
@@ -3224,7 +3224,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3235,7 +3235,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3246,7 +3246,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3257,7 +3257,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_5(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3268,7 +3268,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_6(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3279,7 +3279,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_2_7(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3290,7 +3290,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_3_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array1 = ["apple", "apple"];
     const array2 = ["banana", "grape"];
     const array3 = ["melon", "orange"];
@@ -3301,42 +3301,42 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_removeDuplicatedItems_3_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.removeDuplicatedItems, [], TypeError);
     return true;
   }
 
   // abnoraml systems
   test_removeDuplicatedItems_4_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.removeDuplicatedItems, ["array", 0], TypeError);
     return true;
   }
 
   // abnoraml systems
   test_removeDuplicatedItems_4_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.removeDuplicatedItems, [123, 0], TypeError);
     return true;
   }
 
   // abnoraml systems
   test_removeDuplicatedItems_4_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.removeDuplicatedItems, [{}, 0], TypeError);
     return true;
   }
 
   // abnoraml systems
   test_removeDuplicatedItems_4_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.removeDuplicatedItems, [[], 0], RangeError);
     return true;
   }
 
   // noraml systems
   test_initializeArrays_1_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrayLength = 3;
     const actual = testOfTestGas.initializeArrays(arrayLength);
     const expected = [[], [], []];
@@ -3346,7 +3346,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_initializeArrays_1_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array = [[], []];
     const arrayLength = array.length;
     const actual = testOfTestGas.initializeArrays(arrayLength);
@@ -3357,7 +3357,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_initializeArrays_2_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const array = [];
     const arrayLength = array.length;
     tester.assertError(testOfTestGas.initializeArrays, [arrayLength], RangeError);
@@ -3366,14 +3366,14 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_initializeArrays_2_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.initializeArrays, [], RangeError);
     return true;
   }
 
   // noraml systems
   test_arrayLengthIsOneToItem_1_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[[["aaa", "bbb", "ccc"]], [["vvv", "wwww", "xxxxx"]]]];
     const actual = testOfTestGas.arrayLengthIsOneToItem(arrays);
     const expected = [[["aaa", "bbb", "ccc"], ["vvv", "wwww", "xxxxx"]]];
@@ -3386,7 +3386,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_arrayLengthIsOneToItem_1_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[[[]], [[]]]];
     const actual = testOfTestGas.arrayLengthIsOneToItem(arrays);
     const expected = [[[], []]];
@@ -3399,7 +3399,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_arrayLengthIsOneToItem_1_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[[[]], [[]], [[]]]];
     const actual = testOfTestGas.arrayLengthIsOneToItem(arrays);
     const expected = [[[], [], []]];
@@ -3412,7 +3412,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_arrayLengthIsOneToItem_1_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[[["aaa", "bbb", "ccc"]], [["vvv", "wwww", "xxxxx"]]]];
     const actual = testOfTestGas.arrayLengthIsOneToItem(arrays);
     const expected = [[["aaa", "bbb", "ccc"], ["vvv", "wwww", "xxxxx"]]];
@@ -3425,7 +3425,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_2_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[["aaa", "bbb", "ccc"], ["vvv", "wwww", "xxxxx"]]];
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], RangeError);
     return true;
@@ -3433,7 +3433,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_2_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [["aaa", "bbb", "ccc"], ["vvv", "wwww", "xxxxx"]];
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], RangeError);
     return true;
@@ -3441,7 +3441,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_2_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [["aaa", "bbb", "ccc", "vvv", "wwww", "xxxxx"]];
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], RangeError);
     return true;
@@ -3449,7 +3449,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_2_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = ["aaa", "bbb", "ccc", "vvv", "wwww", "xxxxx"];
     tester.assertNotError(testOfTestGas.arrayLengthIsOneToItem, [arrays], RangeError);
     return true;
@@ -3457,7 +3457,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_2_5(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [];
     tester.assertNotError(testOfTestGas.arrayLengthIsOneToItem, [arrays], RangeError);
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], TypeError);
@@ -3466,7 +3466,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_3_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = "wwww";
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], TypeError);
     return true;
@@ -3474,7 +3474,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_3_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = 444;
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], TypeError);
     return true;
@@ -3482,7 +3482,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_3_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = null;
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [arrays], TypeError);
     return true;
@@ -3490,14 +3490,14 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_arrayLengthIsOneToItem_3_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.arrayLengthIsOneToItem, [], TypeError);
     return true;
   }
 
   // noraml systems
   test_pushEmptyItemToArray_1_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[], []];
     const actual = testOfTestGas.pushEmptyItemToArray(arrays);
     const expected = [[[]], [[]]];
@@ -3509,7 +3509,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_pushEmptyItemToArray_1_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[], [], []];
     const actual = testOfTestGas.pushEmptyItemToArray(arrays);
     const expected = [[[]], [[]], [[]]];
@@ -3521,7 +3521,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_pushEmptyItemToArray_1_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [[]];
     const actual = testOfTestGas.pushEmptyItemToArray(arrays);
     const expected = [[[]]];
@@ -3533,7 +3533,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_pushEmptyItemToArray_2_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [];
     tester.assertError(testOfTestGas.pushEmptyItemToArray, [arrays], TypeError);
     return true;
@@ -3541,7 +3541,7 @@ class Test_utilForTestGas{
 
   // semi-noraml systems
   test_pushEmptyItemToArray_3_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [["wer", "Qert"]];
     const actual = testOfTestGas.pushEmptyItemToArray(arrays);
     const expected = [["wer", "Qert"]];
@@ -3552,7 +3552,7 @@ class Test_utilForTestGas{
 
   // semi-noraml systems
   test_pushEmptyItemToArray_3_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = [["wer", "Qert"], ["adf", "fbvc"]];
     const actual = testOfTestGas.pushEmptyItemToArray(arrays);
     const expected = [["wer", "Qert"], ["adf", "fbvc"]];
@@ -3564,7 +3564,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_pushEmptyItemToArray_4_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = "rty";
     tester.assertError(testOfTestGas.pushEmptyItemToArray, [arrays], TypeError);
     return true;
@@ -3572,7 +3572,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_pushEmptyItemToArray_4_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = 2;
     tester.assertError(testOfTestGas.pushEmptyItemToArray, [arrays], TypeError);
     return true;
@@ -3580,7 +3580,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_pushEmptyItemToArray_4_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = null;
     tester.assertError(testOfTestGas.pushEmptyItemToArray, [arrays], TypeError);
     return true;
@@ -3588,14 +3588,14 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_pushEmptyItemToArray_4_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.pushEmptyItemToArray, [], TypeError);
     return true;
   }
 
   // abnoraml systems
   test_pushEmptyItemToArray_5_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const arrays = ["wer", "Qert"];
     tester.assertError(testOfTestGas.pushEmptyItemToArray, [arrays], TypeError);
     return true;
@@ -3621,11 +3621,11 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_getInitialOfFailureStatement_1_1(){
-    const testOfTestGas = new TestGasExecutor();
-    const failureStatement = "TypeError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:265:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2314:29)\n  actual exception  :  TypeError\n  expected exception:  function RangeError() { [native code] }";
-    const endMark = "at TestGasExecutor.executeTestGas";
+    const testOfTestGas = new Executor();
+    const failureStatement = "TypeError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:265:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2314:29)\n  actual exception  :  TypeError\n  expected exception:  function RangeError() { [native code] }";
+    const endMark = "at Executor.executeTestGas";
     const actual = testOfTestGas.getInitialOfFailureStatement(failureStatement, endMark);
-    const expected = "TypeError: testtesttest\n    at TestGasExecutor.executeTestGas";
+    const expected = "TypeError: testtesttest\n    at Executor.executeTestGas";
     tester.assertEquals(actual, expected);
     return true;
   }
@@ -3633,7 +3633,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_1_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new TypeError("testtesttest");
     }catch(error){
@@ -3644,10 +3644,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["TypeError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:265:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2314:29)\n  actual exception  :  TypeError\n  expected exception:  function RangeError() { [native code] }"];
+      const expected2 = ["TypeError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:265:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2314:29)\n  actual exception  :  TypeError\n  expected exception:  function RangeError() { [native code] }"];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3660,7 +3660,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_1_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new TypeError("testtesttest");
     }catch(error){
@@ -3671,10 +3671,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["TypeError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:265:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2314:29)\n  actual exception  :  TypeError\n  expected exception:  function RangeError() { [native code] }"];
+      const expected2 = ["TypeError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:265:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2314:29)\n  actual exception  :  TypeError\n  expected exception:  function RangeError() { [native code] }"];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3687,7 +3687,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_2_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new ValueError("testtesttest");
     }catch(error){
@@ -3698,10 +3698,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["ValueError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:277:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2337:29)\n  actual  :  test1\n  expected:  test2"];
+      const expected2 = ["ValueError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:277:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:2337:29)\n  actual  :  test1\n  expected:  test2"];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3714,7 +3714,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_2_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new RangeError("testtesttest");
     }catch(error){
@@ -3725,10 +3725,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["RangeError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3584:29)\n  actual  :  [test1]\n  expected:  test2"];
+      const expected2 = ["RangeError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3584:29)\n  actual  :  [test1]\n  expected:  test2"];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3741,7 +3741,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_2_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new ReferenceError("testtesttest");
     }catch(error){
@@ -3752,10 +3752,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["ReferenceError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3611:29)\n  actual  :  \"Symbol(Sym)\"\n  expected:  \"Symbol(Sym)\""];
+      const expected2 = ["ReferenceError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3611:29)\n  actual  :  \"Symbol(Sym)\"\n  expected:  \"Symbol(Sym)\""];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3768,7 +3768,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_3_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new EvalError("testtesttest");
     }catch(error){
@@ -3779,10 +3779,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["EvalError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \"\"\n  expected:  \"\""];
+      const expected2 = ["EvalError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \"\"\n  expected:  \"\""];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3795,7 +3795,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_3_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new EvalError("testtesttest");
     }catch(error){
@@ -3806,10 +3806,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["EvalError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \n  expected:  "];
+      const expected2 = ["EvalError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \n  expected:  "];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3822,7 +3822,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_3_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new EvalError("testtesttest");
     }catch(error){
@@ -3832,10 +3832,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["EvalError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \"\"\n  expected:  \"\""];
+      const expected2 = ["EvalError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \"\"\n  expected:  \"\""];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3848,7 +3848,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_outputErrorStack_3_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new EvalError("testtesttest");
     }catch(error){
@@ -3857,10 +3857,10 @@ class Test_utilForTestGas{
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
       const expected1 = [getThisFuncName(this.value)];
-      const expected2 = ["EvalError: testtesttest\n    at TestGasExecutor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \"\"\n  expected:  \"\""];
+      const expected2 = ["EvalError: testtesttest\n    at Executor.executeTestGas (utilForTestGas:329:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3729:29)\n  actual  :  \"\"\n  expected:  \"\""];
       tester.assertEqualsArrayItems(actual1, expected1);
       tester.assertEqualsArrayLength(actual2, expected2);
-      const endMark = "at TestGasExecutor.executeTestGas";
+      const endMark = "at Executor.executeTestGas";
       const initialOfFailureStatement = tester.getInitialOfFailureStatement(expected2[0], endMark);
       tester.assertEquals(actual2[0].indexOf(initialOfFailureStatement)
                         , expected2[0].indexOf(initialOfFailureStatement)
@@ -3873,7 +3873,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_4_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const error = "error";
     const isErrorAssertion = false;
     const actualValue = "test1";
@@ -3883,7 +3883,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_4_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const error = "error";
     const isErrorAssertion = true;
     const actualValue = "test1";
@@ -3893,7 +3893,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_4_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     const error = "error";
     const isErrorAssertion = false;
     tester.assertError(testOfTestGas.outputErrorStack, [error, isErrorAssertion], TypeError);
@@ -3901,7 +3901,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_5_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new TypeError("testtesttest");
     }catch(error){
@@ -3914,7 +3914,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_5_2(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new TypeError("testtesttest");
     }catch(error){
@@ -3926,7 +3926,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_5_3(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new TypeError("testtesttest");
     }catch(error){
@@ -3937,7 +3937,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_5_4(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     try{
       throw new TypeError("testtesttest");
     }catch(error){
@@ -3947,13 +3947,13 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_outputErrorStack_6_1(){
-    const testOfTestGas = new TestGasExecutor();
+    const testOfTestGas = new Executor();
     tester.assertError(testOfTestGas.outputErrorStack, [], TypeError);
   }
 
   // noraml systems
   // test_outputResultOfTest_1_1(){
-  //   let testOfTestGas = new TestGasExecutor();
+  //   let testOfTestGas = new Executor();
   //   const descriptorKeys = [];
   //   const failureFuncs = [];
   //   const failureStatements = [];
@@ -3964,7 +3964,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_executeTestGas_1_1(){
-    let testOfTestGas = new TestGasExecutor();
+    let testOfTestGas = new Executor();
     class TestClassForTestGas{
       test_1(){
         const actual = true;
@@ -3993,7 +3993,7 @@ class Test_utilForTestGas{
     tester.assertEquals(testOfTestGas.keyOfArraysToDisplay, "arraysToDisplay");
     tester.assertEquals(testOfTestGas.keyOfRemovedArrays, "removedArrays");
     tester.assertEqualsArrayItems(testOfTestGas.failureFuncs, ["test_2"]);
-    let expectedFailureStatements = ["AssertionError: Actual value is not equal to Expected value.\n    at Object.test_2 [as value] (test_utilForTestGas:3018:23)\n    at TestGasExecutor.executeTestGas (utilForTestGas:324:55)\n    at Object.test_executeTestGas_1_1 [as value] (test_utilForTestGas:3030:44)\n    at TestGasExecutor.executeTestGas (utilForTestGas:324:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3293:29)\n  actual  :  true\n  expected:  false"]
+    let expectedFailureStatements = ["AssertionError: Actual value is not equal to Expected value.\n    at Object.test_2 [as value] (test_utilForTestGas:3018:23)\n    at Executor.executeTestGas (utilForTestGas:324:55)\n    at Object.test_executeTestGas_1_1 [as value] (test_utilForTestGas:3030:44)\n    at Executor.executeTestGas (utilForTestGas:324:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3293:29)\n  actual  :  true\n  expected:  false"]
     let endMark = "at Object.test_2";
     let initialOfFailureStatement = tester.getInitialOfFailureStatement(expectedFailureStatements[0], endMark);
     tester.assertEquals(testOfTestGas.failureStatements[0].indexOf(initialOfFailureStatement)
@@ -4024,7 +4024,7 @@ class Test_utilForTestGas{
 
   // noraml systems
   test_executeTestGas_1_2(){
-    let testOfTestGas = new TestGasExecutor();
+    let testOfTestGas = new Executor();
     class TestClassForTestGas{
       test_1(){
         const actual = true;
@@ -4053,7 +4053,7 @@ class Test_utilForTestGas{
     tester.assertEquals(testOfTestGas.keyOfArraysToDisplay, "arraysToDisplay");
     tester.assertEquals(testOfTestGas.keyOfRemovedArrays, "removedArrays");
     tester.assertEqualsArrayItems(testOfTestGas.failureFuncs, arrayErrorMayOccur);
-    let expectedFailureStatements = ["AssertionError: Actual value is not equal to Expected value.\n    at Object.test_2 [as value] (test_utilForTestGas:3018:23)\n    at TestGasExecutor.executeTestGas (utilForTestGas:324:55)\n    at Object.test_executeTestGas_1_1 [as value] (test_utilForTestGas:3030:44)\n    at TestGasExecutor.executeTestGas (utilForTestGas:324:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3293:29)\n  actual  :  true\n  expected:  false"]
+    let expectedFailureStatements = ["AssertionError: Actual value is not equal to Expected value.\n    at Object.test_2 [as value] (test_utilForTestGas:3018:23)\n    at Executor.executeTestGas (utilForTestGas:324:55)\n    at Object.test_executeTestGas_1_1 [as value] (test_utilForTestGas:3030:44)\n    at Executor.executeTestGas (utilForTestGas:324:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3293:29)\n  actual  :  true\n  expected:  false"]
     let endMark = "at Object.test_2";
     let initialOfFailureStatement = tester.getInitialOfFailureStatement(expectedFailureStatements[0], endMark);
     tester.assertEquals(testOfTestGas.failureStatements[0].indexOf(initialOfFailureStatement)
@@ -4084,7 +4084,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_executeTestGas_2_1(){
-    let testOfTestGas = new TestGasExecutor();
+    let testOfTestGas = new Executor();
     const executingTestClass = "function";
     const arrayErrorMayOccur = ["test1", "test2"]
     tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arrayErrorMayOccur], TypeError);
@@ -4092,7 +4092,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_executeTestGas_2_2(){
-    let testOfTestGas = new TestGasExecutor();
+    let testOfTestGas = new Executor();
     class TestClassForTestGas{
       test_1(){
         const actual = true;
@@ -4112,7 +4112,7 @@ class Test_utilForTestGas{
 
   // abnoraml systems
   test_executeTestGas_2_3(){
-    let testOfTestGas = new TestGasExecutor();
+    let testOfTestGas = new Executor();
     class TestClassForTestGas{
       test_1(){
         const actual = true;

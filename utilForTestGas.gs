@@ -888,7 +888,7 @@ class TestGasClass{
  * @return {Hoge} ←の{}の中にライブラリのGASプロジェクトと同じ名前を指定する。
  */
 function createExecutor() {
-  return new TestGasExecutor();
+  return new Executor();
 }
 
 //HogeClassの中で補完させたいメソッドのダミーメソッドをグローバルメソッドとして作る。
@@ -896,13 +896,13 @@ function createExecutor() {
  * Fugaを取得します。
  * @return {string} fuga
  */
-function getFuga() {
+function executeTestGas() {
   throw new Error("createExecutorを呼び出してから呼び出してください。");
 }
 
 // HogeClassメソッド自体は補完させたくないので隠す
 (function(global){
-  function TestGasExecutor(fuga) {
+  function Executor(fuga) {
     this.keyOfArraysToDisplay = "arraysToDisplay";
     this.keyOfRemovedArrays = "removedArrays";
     this.failureFuncs = [];
@@ -921,7 +921,7 @@ function getFuga() {
    * @param {string[]} arrayErrorMayOccur
    * @return {string[]}
   */
-  TestGasExecutor.prototype.executeTestGas = function(executingTestClass, arrayErrorMayOccur=[]){
+  Executor.prototype.executeTestGas = function(executingTestClass, arrayErrorMayOccur=[]){
     if(!isObjectType(executingTestClass, "Function")){
       throw new TypeError("executingTestClass must be Function type.");
     }
@@ -960,7 +960,7 @@ function getFuga() {
    * @param {string[]} arrayErrorMayOccur
    * @return {object}
   */
-  TestGasExecutor.prototype.outputResultOfTest = function(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur=[]){
+  Executor.prototype.outputResultOfTest = function(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur=[]){
     if(!isLengthOfArraySame([failureFuncs, failureStatements])){
       throw new RangeError("Length of \"failureFuncs\" don't match length of \"failureStatements\"");
     }
@@ -1008,7 +1008,7 @@ function getFuga() {
    * @param {string[]} arrayForRemovingArray
    * @return {string{}[][]}
   */
-  TestGasExecutor.prototype.removeArrayItemToDisplay = function(arrays, judgeArrayIndex, arrayForRemovingArray=[]){
+  Executor.prototype.removeArrayItemToDisplay = function(arrays, judgeArrayIndex, arrayForRemovingArray=[]){
     let arraysObj = {};
     if(!isObjectType(arrays, "Array")){
       throw new TypeError("arrays must be Array type.");
@@ -1035,7 +1035,7 @@ function getFuga() {
     if(judgeArrayIndex < 0){
       throw new RangeError("judgeArrayIndex must be more than or equal to 0.");
     }
-    
+
     if(arrays[judgeArrayIndex].length === 0){
       arraysObj[this.keyOfArraysToDisplay] = arrays;
       arraysObj[this.keyOfRemovedArrays] = [[], []];
@@ -1080,7 +1080,7 @@ function getFuga() {
    * @param {number} judgeArrayIndex
    * @return {any[]}
   */
-  TestGasExecutor.prototype.removeDuplicatedItems = function(arrays, judgeArrayIndex){
+  Executor.prototype.removeDuplicatedItems = function(arrays, judgeArrayIndex){
     const funcName = "removeDuplicatedItems";
     if(!Number.isInteger(judgeArrayIndex)){
       throw new TypeError("judgeArrayIndex must be integer type.");
@@ -1120,7 +1120,7 @@ function getFuga() {
    * @param {number} arraysLength
    * @return {string[]}
   */
-  TestGasExecutor.prototype.initializeArrays = function(arraysLength=0){
+  Executor.prototype.initializeArrays = function(arraysLength=0){
     let arrays = []
     if(arraysLength === 0){
       throw new RangeError("Length of arrays must be more than 0")
@@ -1135,7 +1135,7 @@ function getFuga() {
    * @param {string[][][]} arrays
    * @return {string[][]}
   */
-  TestGasExecutor.prototype.arrayLengthIsOneToItem = function(arrays){
+  Executor.prototype.arrayLengthIsOneToItem = function(arrays){
     const funcName = "arrayLengthIsOneToItem";
     let returnArray1 = [];
     let returnArray2 = [];
@@ -1177,7 +1177,7 @@ function getFuga() {
    * @param {string[][]} arrays
    * @return {string[][][]}
   */
-  TestGasExecutor.prototype.pushEmptyItemToArray = function(arrays){
+  Executor.prototype.pushEmptyItemToArray = function(arrays){
     const funcName = "pushEmptyItemToArray";
     if(!isObjectType(arrays, "Array")){
       throw new TypeError("arrays must be Array type.");
@@ -1205,7 +1205,7 @@ function getFuga() {
    * @param {boolean} willOutputErrorToReport
    * @return {boolean} isPassedFlag
   */
-  TestGasExecutor.prototype.assertEquals = function(actual, expected, willOutputErrorToReport=true){
+  Executor.prototype.assertEquals = function(actual, expected, willOutputErrorToReport=true){
     const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
       if(typeof actual === "undefined" || typeof expected === "undefined"){
@@ -1234,7 +1234,7 @@ function getFuga() {
    * @param {boolean} willOutputErrorToReport
    * @return {boolean} isPassedFlag
   */
-  TestGasExecutor.prototype.assertEqualsArrayLength = function(actual, expected, willOutputErrorToReport=true){
+  Executor.prototype.assertEqualsArrayLength = function(actual, expected, willOutputErrorToReport=true){
     const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
       if(!isObjectType(actual, "Array") && !isObjectType(expected, "Array")){
@@ -1264,7 +1264,7 @@ function getFuga() {
    * @param {boolean} willOutputErrorToReport
    * @return {boolean} isPassedFlag
   */
-  TestGasExecutor.prototype.assertEqualsArrayItems = function(actual, expected, willOutputErrorToReport=true){
+  Executor.prototype.assertEqualsArrayItems = function(actual, expected, willOutputErrorToReport=true){
     const isBoolean = isObjectType(willOutputErrorToReport, "Boolean");
     try{
       if(actual.length !== expected.length){
@@ -1297,7 +1297,7 @@ function getFuga() {
    * @param {any} expected
    * @return {boolean} isPassedFlag
   */
-  TestGasExecutor.prototype.assertNotEquals = function(actual, expected){
+  Executor.prototype.assertNotEquals = function(actual, expected){
     try{
       if(actual === expected){
         throw new AssertionError("Actual value is equal to Expected value.")
@@ -1316,7 +1316,7 @@ function getFuga() {
    * @param {boolean} willOutputErrorToReport
    * @return {boolean} isExpectedErrorRaised
   */
-  TestGasExecutor.prototype.assertError = function(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
+  Executor.prototype.assertError = function(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
     let isExpectedErrorRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -1371,7 +1371,7 @@ function getFuga() {
    * @param {boolean} willOutputErrorToReport
    * @return {boolean} isExpectedErrorRaised
   */
-  TestGasExecutor.prototype.assertNotError = function(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
+  Executor.prototype.assertNotError = function(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
     let isExpectedErrorNotRaised = false;
     let actualErrorName = "";
     if(!isObjectType(func, "Function")){
@@ -1423,7 +1423,7 @@ function getFuga() {
    * @param {string} expected
    * @return {void}
   */
-  TestGasExecutor.prototype.outputErrorStack = function(error, isErrorAssertion, actual="", expected=""){
+  Executor.prototype.outputErrorStack = function(error, isErrorAssertion, actual="", expected=""){
     const funcName = "outputErrorStack";
     
     if(!isErrorType(error)){
@@ -1486,13 +1486,13 @@ function getFuga() {
    * @param {string} failureStatement
    * @return {string}
   */
-  TestGasExecutor.prototype.getInitialOfFailureStatement = function(failureStatement, endMark){
+  Executor.prototype.getInitialOfFailureStatement = function(failureStatement, endMark){
     const initialOfFailureStatement = failureStatement.substring(0, failureStatement.indexOf(endMark) + endMark.length);
     return initialOfFailureStatement;
   }
   // -------------------- For test this object: End ---------------------------------------------------------------
 
-  global.TestGasExecutor = TestGasExecutor;
+  global.Executor = Executor;
 })(this);
 
 // /**

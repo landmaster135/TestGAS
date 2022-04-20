@@ -3,7 +3,9 @@
 /**
    * Test codes for utilities to test Google Apps Script.
 */
-let tester = new TestGasExecutor();
+// let tester = new TestGasExecutor();
+let tester = createExecutor();
+
 // class Test_utilForTestGas extends TestGasClass{
 class Test_utilForTestGas{
   // noraml systems
@@ -2978,7 +2980,8 @@ class Test_utilForTestGas{
     const array2 = ["banana", "grape", "strawberry", "orange"];
     const arrayForRemovingArray = [];
     const arrays = [array1, array2];
-    const actualObj = testOfTestGas.removeArrayItemToDisplay(arrays, 0);
+    const judgeArrayIndex = 0;
+    const actualObj = testOfTestGas.removeArrayItemToDisplay(arrays, judgeArrayIndex);
     const actual1 = actualObj[testOfTestGas.keyOfArraysToDisplay][0];
     const actual2 = actualObj[testOfTestGas.keyOfArraysToDisplay][1];
     const actual3 = actualObj[testOfTestGas.keyOfRemovedArrays][0];
@@ -2994,15 +2997,50 @@ class Test_utilForTestGas{
     return true;
   }
 
-  // abnoraml systems
-  test_removeArrayItemToDisplay_3_1(){
+  // semi-noraml systems
+  test_removeArrayItemToDisplay_2_3(){
     const testOfTestGas = new TestGasExecutor();
-    const array1 = ["apple", "melon", "kiwi", "lemon"];
-    const array2 = ["banana", "grape", "strawberry", "orange"];
-    const arrayForRemovingArray = ["melon", "kiwi"];
+    const array1 = [];
+    const array2 = [];
+    const arrayForRemovingArray = [];
     const arrays = [array1, array2];
-    const judgeArrayIndex = array1.length;
-    tester.assertError(testOfTestGas.removeArrayItemToDisplay, [arrays, judgeArrayIndex, arrayForRemovingArray], RangeError);
+    const judgeArrayIndex = 0;
+    const actualObj = testOfTestGas.removeArrayItemToDisplay(arrays, judgeArrayIndex, arrayForRemovingArray);
+    const actual1 = actualObj[testOfTestGas.keyOfArraysToDisplay][0];
+    const actual2 = actualObj[testOfTestGas.keyOfArraysToDisplay][1];
+    const actual3 = actualObj[testOfTestGas.keyOfRemovedArrays][0];
+    const actual4 = actualObj[testOfTestGas.keyOfRemovedArrays][1];
+    const expected1 = [];
+    const expected2 = [];
+    const expected3 = [];
+    const expected4 = [];
+    tester.assertEqualsArrayLength(actual1, expected1);
+    tester.assertEqualsArrayLength(actual2, expected2);
+    tester.assertEqualsArrayLength(actual3, expected3);
+    tester.assertEqualsArrayLength(actual4, expected4);
+    return true;
+  }
+
+  // semi-noraml systems
+  test_removeArrayItemToDisplay_2_4(){
+    const testOfTestGas = new TestGasExecutor();
+    const array1 = [];
+    const array2 = [];
+    const arrays = [array1, array2];
+    const judgeArrayIndex = 0;
+    const actualObj = testOfTestGas.removeArrayItemToDisplay(arrays, judgeArrayIndex);
+    const actual1 = actualObj[testOfTestGas.keyOfArraysToDisplay][0];
+    const actual2 = actualObj[testOfTestGas.keyOfArraysToDisplay][1];
+    const actual3 = actualObj[testOfTestGas.keyOfRemovedArrays][0];
+    const actual4 = actualObj[testOfTestGas.keyOfRemovedArrays][1];
+    const expected1 = [];
+    const expected2 = [];
+    const expected3 = [];
+    const expected4 = [];
+    tester.assertEqualsArrayLength(actual1, expected1);
+    tester.assertEqualsArrayLength(actual2, expected2);
+    tester.assertEqualsArrayLength(actual3, expected3);
+    tester.assertEqualsArrayLength(actual4, expected4);
     return true;
   }
 

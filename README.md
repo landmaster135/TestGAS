@@ -8,7 +8,7 @@ An example of a simple test:
 
 ```javascript
 // content of test_sample.gs
-let tester = createExecutor();
+let tester = TestGAS.createExecutor();
 
 function sample(x){
   return x + 1;
@@ -17,6 +17,9 @@ function sample(x){
 class Test_sample{
   test_sample_1(){
     tester.assertEquals(sample(2), 4);
+  }
+  test_sample_2(){
+    tester.assertNotEquals(sample(2), 4);
   }
 }
 
@@ -28,7 +31,7 @@ function execute_Test_sample(){
 To execute `execute_Test_sample`:
 
 ```shell_session
-[ 'test_sample_1' ]
+[ 'test_sample_1', 'test_sample_2' ]
 TestGAS starts: "Test_sample"
 ...... TestGAS terminated: "Test_sample".
 ====================================================== FAILURES ======================================================
@@ -39,7 +42,7 @@ AssertionError: Actual value is not equal to Expected value.
     at execute_Test_sample (test_sample:14:30)
   actual  :  3
   expected:  4
-=================== 1 failed, 0 passed of all 1 tests in 0 seconds ===================
+=================== 1 failed, 1 passed of all 2 tests in 0.01 seconds ===================
 ```
 
 See [getting-started]() for more examples.

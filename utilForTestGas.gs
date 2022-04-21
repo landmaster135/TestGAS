@@ -880,27 +880,187 @@ class TestGasClass{
 // }
 
 
-// -------------------- Dummy: Start ---------------------------------------------------------------
+// -------------------- Factory method: Start ---------------------------------------------------------------
 
 /**
- * HogeClassをインスタンス化するためのファクトリメソッド
- * @param {string} fuga HogeClassのコンストラクタ引数を指定
- * @return {Hoge} ←の{}の中にライブラリのGASプロジェクトと同じ名前を指定する。
+ * Executor classをインスタンス化するためのファクトリメソッド
+ * @param {void}
+ * @return {Executor} ←の{}の中にライブラリのGASプロジェクトと同じ名前を指定する。
  */
 function createExecutor() {
   return new Executor();
 }
 
-//HogeClassの中で補完させたいメソッドのダミーメソッドをグローバルメソッドとして作る。
+// -------------------- Factory method: End ---------------------------------------------------------------
+
+// -------------------- Dummy methods: Start ---------------------------------------------------------------
+// Make dummy global methods to implement the methods you wanna implement in Executor class.
+
 /**
- * Fugaを取得します。
- * @return {string} fuga
+ * execute TestGAS
+ * @param {class} executingTestClass
+ * @param {string[]} arrayErrorMayOccur
+ * @return {string[]}
  */
-function executeTestGas() {
-  throw new Error("createExecutorを呼び出してから呼び出してください。");
+function executeTestGas(executingTestClass, arrayErrorMayOccur=[]){
+  throw new Error("Call this method after calling createExecutor.");
 }
 
-// HogeClassメソッド自体は補完させたくないので隠す
+// /**
+//  * execute TestGAS
+//  * @param {string[]} descriptorKeys
+//  * @param {string[]} failureFuncs
+//  * @param {string[]} failureStatements
+//  * @param {number} testExeSecond
+//  * @param {string[]} arrayErrorMayOccur
+//  * @return {object}
+//  */
+// function outputResultOfTest(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur=[]){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// /**
+//  * execute TestGAS
+//  * @param {string[][]} arrays
+//  * @param {number} judgeArrayIndex
+//  * @param {string[]} arrayForRemovingArray
+//  * @return {string{}[][]}
+//  */
+// function removeArrayItemToDisplay(arrays, judgeArrayIndex, arrayForRemovingArray=[]){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// /**
+//  * execute TestGAS
+//  * @param {any[]} arrays
+//  * @param {number} judgeArrayIndex
+//  * @return {any[]}
+//  */
+// function removeDuplicatedItems(arrays, judgeArrayIndex){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// /**
+//  * execute TestGAS
+//  * @param {number} arraysLength
+//  * @return {string[]}
+//  */
+// function initializeArrays(arraysLength=0){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// /**
+//  * execute TestGAS
+//  * @param {string[][][]} arrays
+//  * @return {string[][]}
+//  */
+// function arrayLengthIsOneToItem(arrays){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// /**
+//  * execute TestGAS
+//  * @param {string[][]} arrays
+//  * @return {string[][][]}
+//  */
+// function pushEmptyItemToArray(arrays){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+/**
+ * execute TestGAS
+ * @template T
+ * @param {T} actual
+ * @param {T} expected
+ * @param {boolean} willOutputErrorToReport
+ * @return {boolean} isPassedFlag
+ */
+function assertEquals(actual, expected, willOutputErrorToReport=true){
+  throw new Error("Call this method after calling createExecutor.");
+}
+
+/**
+ * execute TestGAS
+ * @param {any[]} actual
+ * @param {any[]} expected
+ * @param {boolean} willOutputErrorToReport
+ * @return {boolean} isPassedFlag
+ */
+function assertEqualsArrayLength(actual, expected, willOutputErrorToReport=true){
+  throw new Error("Call this method after calling createExecutor.");
+}
+
+/**
+ * execute TestGAS
+ * @template T
+ * @param {T[]} actual
+ * @param {T[]} expected
+ * @param {boolean} willOutputErrorToReport
+ * @return {boolean} isPassedFlag
+ */
+function assertEqualsArrayItems(actual, expected, willOutputErrorToReport=true){
+  throw new Error("Call this method after calling createExecutor.");
+}
+
+/**
+ * execute TestGAS
+ * @param {any} actual
+ * @param {any} expected
+ * @return {boolean} isPassedFlag
+ */
+function assertNotEquals(actual, expected){
+  throw new Error("Call this method after calling createExecutor.");
+}
+
+/**
+ * execute TestGAS
+ * @param {Function} func
+ * @param {any[]} funcArgs
+ * @param {Error} expectedErrorName
+ * @param {boolean} willOutputErrorToReport
+ * @return {boolean} isExpectedErrorRaised
+ */
+function assertError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
+  throw new Error("Call this method after calling createExecutor.");
+}
+
+/**
+ * execute TestGAS
+ * @param {Function} func
+ * @param {any[]} funcArgs
+ * @param {Error} expectedErrorName
+ * @param {boolean} willOutputErrorToReport
+ * @return {boolean} isExpectedErrorRaised
+ */
+function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true){
+  throw new Error("Call this method after calling createExecutor.");
+}
+
+// /**
+//  * execute TestGAS
+//  * @param {Error} error
+//  * @param {boolean} isErrorAssertion
+//  * @param {string} actual
+//  * @param {string} expected
+//  * @return {void}
+//  */
+// function outputErrorStack(error, isErrorAssertion, actual="", expected=""){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// /**
+//  * execute TestGAS
+//  * @param {string} failureStatement
+//  * @param {string} endMark
+//  * @return {string}
+//  */
+// function getInitialOfFailureStatement(failureStatement, endMark){
+//   throw new Error("Call this method after calling createExecutor.");
+// }
+
+// -------------------- Dummy methods: End ---------------------------------------------------------------
+
+// Classメソッド自体は補完させたくないので隠す
 (function(global){
   function Executor(fuga) {
     this.keyOfArraysToDisplay = "arraysToDisplay";
@@ -952,7 +1112,6 @@ function executeTestGas() {
   }
 
   /**
-   * @param {class} testClass
    * @param {string[]} descriptorKeys
    * @param {string[]} failureFuncs
    * @param {string[]} failureStatements
@@ -1484,6 +1643,7 @@ function executeTestGas() {
   // -------------------- For test this object: Start ---------------------------------------------------------------
   /**
    * @param {string} failureStatement
+   * @param {string} endMark
    * @return {string}
   */
   Executor.prototype.getInitialOfFailureStatement = function(failureStatement, endMark){

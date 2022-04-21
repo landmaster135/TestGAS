@@ -3,10 +3,8 @@
 /**
    * Test codes for utilities to test Google Apps Script.
 */
-// let tester = new Executor();
 let tester = createExecutor();
 
-// class Test_utilForTestGas extends TestGasClass{
 class Test_utilForTestGas{
   // noraml systems
   test_assertEquals_1_1(){

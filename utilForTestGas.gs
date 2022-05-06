@@ -472,6 +472,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
   function Executor(fuga) {
     this.keyOfArraysToDisplay = "arraysToDisplay";
     this.keyOfRemovedArrays = "removedArrays";
+    this.executingTestFunc = "";
     this.failureFuncs = [];
     this.failureStatements = [];
     this.markOfTestStarts = " test starts ...................................................................................";
@@ -505,6 +506,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
     let exeStart = new Date();
     for(let i = 0; i < descriptorKeys.length; i++){
       // "descriptorObj[descriptorKeys[i]].value" is a Function. Bind function.
+      this.executingTestFunc = descriptorKeys[i];
       isTestPassed = descriptorObj[descriptorKeys[i]].value();
       if(isTestPassed === false){
         // failureFuncs.push(descriptorKeys[i]);
@@ -999,10 +1001,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
       throw new TypeError("isErrorAssertion must be bool type.");
     }
     let errorStackArray = error.stack.split("\n");
-    const headWord = "at Object.";
-    const tailWord = " [as value]";
-    const failureTestFuncNames = getMidWords(errorStackArray, headWord, tailWord);
-    const failureTestFuncName = failureTestFuncNames[0];
+    const failureTestFuncName = this.executingTestFunc;
     const lineOfThisFuncInErrorStack = 1;
     const lineOfTopFunctionCallInErrorStack = errorStackArray.length - 1;
     let arrayOfIndexForSplicing = [lineOfThisFuncInErrorStack, lineOfTopFunctionCallInErrorStack];

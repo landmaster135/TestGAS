@@ -3638,6 +3638,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = true;
       const actualErrorName = error.name;
       const expectedErrorName = RangeError;
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualErrorName, expectedErrorName);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3665,6 +3666,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = true;
       const actualErrorName = TypeError;
       const expectedErrorName = RangeError;
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualErrorName, expectedErrorName);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3692,6 +3694,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = false;
       const actualValue = "test1";
       const expectedValue = "test2";
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualValue, expectedValue);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3719,6 +3722,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = false;
       const actualValue = ["test1", "test2"];
       const expectedValue = ["test2", "test4"];
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualValue, expectedValue);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3746,6 +3750,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = false;
       const actualValue = Symbol("Sym");
       const expectedValue = Symbol("Sym");
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualValue, expectedValue);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3773,6 +3778,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = false;
       const actualValue = "";
       const expectedValue = "";
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualValue, expectedValue);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3800,6 +3806,7 @@ class Test_utilForTestGas{
       const isErrorAssertion = false;
       const actualValue = null;
       const expectedValue = null;
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualValue, expectedValue);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3826,6 +3833,7 @@ class Test_utilForTestGas{
     }catch(error){
       const isErrorAssertion = false;
       const actualValue = "";
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion, actualValue);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;
@@ -3851,6 +3859,7 @@ class Test_utilForTestGas{
       throw new EvalError("testtesttest");
     }catch(error){
       const isErrorAssertion = false;
+      testOfTestGas.executingTestFunc = getThisFuncName(this.value);
       testOfTestGas.outputErrorStack(error, isErrorAssertion);
       const actual1 = testOfTestGas.failureFuncs;
       const actual2 = testOfTestGas.failureStatements;

@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>TipsNote : GitHub Pages Sample</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
-  </head>
-
+---
+layout: default
+title: タイトルは２つある
+description: metaタグで見れる
+---
 <body>
-  <main>
-    <h1>GitHub Pages のサンプルです</h1>
-    <a href="https://www.endorphinbath.com"><button>EndorphinBath に戻る</button></a>
-  </main>
+  <h1>文字の大きさ h1</h1>
+  <h2>文字の大きさ h2</h2>
+  <h3>文字の大きさ h3</h3>
+<pre>
+&lt;pre&gt; のテスト
+</pre>
+<p>
+&lt;p&gt; のテスト
+</p>
 
-  <script>
-    console.log('GitHub Pages Sample');
-  </script>
-</body>
-</html>
+{% highlight javascript %}
+const fun=function(){
+    console.log("test");
+};
+{% endhighlight %}

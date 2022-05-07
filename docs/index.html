@@ -14,20 +14,50 @@ description: Top page of reference about TestGAS
 &lt;p&gt; のテスト
         </p>
 
-  {% highlight javascript %}
-  const fun=function(){
-      console.log("test");
-  };
-  {% endhighlight %}
+        {% highlight javascript %}
+        const fun=function(){
+            console.log("test");
+        };
+        {% endhighlight %}
 
 
   <h1>TestGAS helps you write better Google Apps Script</h1>
     <h2>Methods</h2>
       <li>
+        <a href="#createexecutor">createExecutor</a>
+      </li>
+      <li>
+        <a href="#executetestgas">Executor.executeTestGas</a>
+      </li>
+      <li>
         <a href="#assertequals">Executor.assertEquals</a>
+      </li>
+      <li>
+        <a href="#assertequalsarraylength">Executor.assertEqualsArrayLength</a>
+      </li>
+      <li>
+        <a href="#assertequalsarrayitems">Executor.assertEqualsArrayItems</a>
+      </li>
+      <li>
+        <a href="#assertnotequals">Executor.assertNotEquals</a>
+      </li>
+      <li>
+        <a href="#asserterror">Executor.assertError</a>
+      </li>
+      <li>
+        <a href="#assertnoterror">Executor.assertNotError</a>
       </li>
 
     <h2>Reference</h2>
-      <h3 id="assertequals">Executor.assertEquals</h3>
+      <h3 id="createexecutor">createExecutor()</h3>
+
+
+      <h3 id="executetestgas">Executor.executeTestGas(executingTestClass, arraySkippingTest=[])</h3>
+      <h3 id="assertequals">Executor.assertEquals(actual, expected, willOutputErrorToReport=true)</h3>
+      <h3 id="assertequalsarraylength">Executor.assertEqualsArrayLength(actual, expected, willOutputErrorToReport=true)</h3>
+      <h3 id="assertequalsarrayitems">Executor.assertEqualsArrayItems(actual, expected, willOutputErrorToReport=true)</h3>
+      <h3 id="assertnotequals">Executor.assertNotEquals(actual, expected)</h3>
+      <h3 id="asserterror">Executor.assertError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
+      <h3 id="assertnoterror">Executor.assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
 
 </body>

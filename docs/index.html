@@ -4,7 +4,7 @@ title: Reference
 description: Top page of reference about TestGAS
 ---
 <head>
-  <link rel="shortcut icon" type="image/x-icon" href="path/img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 </head>
 
 <body>
@@ -93,8 +93,30 @@ function execute_Test_utilForTestGas(){
 }
 {% endhighlight %}
 
-      <h3 id="executetestgas"><a href="#id02">xecutor.executeTestGas (executingTestClass, arraySkippingTest=[])</a>E</h3>
+      <h3 id="executetestgas"><a href="#id02">Executor.executeTestGas (executingTestClass, arraySkippingTest=[])</a></h3>
         <p>Runs test and display result of test.</p>
+        <h4>Arguments</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>type</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>executingTestClass</td>
+                <td>Object</td>
+                <td>Executor of TestGAS.</td>
+              </tr>
+              <tr>
+                <td>arraySkippingTest</td>
+                <td>string[]</td>
+                <td>array of functions that test is being skipped.</td>
+              </tr>
+            </tbody>
+          </table>
         <h4>Example</h4>
 {% highlight javascript %}
 class Test_TestGas{

@@ -40,7 +40,7 @@ function execute_Test_sample(){
 }
 ```
 
-To execute `execute_Test_sample`:
+Result of executing `execute_Test_sample`:
 
 ```shell_session
 [ 'test_sample_1', 'test_sample_2' ]
@@ -57,15 +57,9 @@ AssertionError: Actual value is not equal to Expected value.
 =================== 1 failed, 1 passed of all 2 tests in 0.01 seconds ===================
 ```
 
-## Enumerate testcases that you don't wanna test
+## More detail
 
-```javascript
-
-```
-
-```shell_sessoin
-
-```
+View [Reference](https://landmaster135.github.io/TestGAS/).
 
 # Features
 
@@ -161,7 +155,7 @@ classDiagram
     number testExeSecond
     string[] arrayErrorMayOccur
     return object[]
-  }  
+  }
   class removeArrayItemToDisplay {
     string[][] arrays
     number judgeArrayIndex
@@ -268,7 +262,7 @@ classDiagram
   assertEqualsArrayItems   --> AssertionError : depend
   assertError              --> AssertionError : depend
   assertNotError           --> AssertionError : depend
-  
+
   getMidWords              --> getMidWord : depend
   outputResultOfTest       --> isLengthOfArraySame : depend
   removeArrayItemToDisplay --> isLengthOfArraySame : depend

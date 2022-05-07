@@ -4343,17 +4343,17 @@ class TestFuncsForName2{
 }
 
 /**
- * @return {bool} isTestTerminated
+ * @return {string[]} failureFuncs
 */
 function execute_Test_utilForTestGas(){
   const funcName = "execute_Test_utilForTestGas";
   console.log(`${funcName}: aaaaaaaaaaaaaaaaaaaaaaaaaaaaa`);
-  const arrayErrorMayOccur = [
+  const arraySkippingTest = [
     "test_assertEquals_2_3"
     , "test_assertEquals_2_4"
   ]
   // console.log(Test_utilForTestGas)
-  let failureFuncs = tester.executeTestGas(Test_utilForTestGas, arrayErrorMayOccur);
+  let failureFuncs = tester.executeTestGas(Test_utilForTestGas, arraySkippingTest);
   console.log(`${funcName}: bbbbbbbbbbbbbbbbbbbbbbbb`);
   return failureFuncs;
 }

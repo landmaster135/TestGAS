@@ -486,14 +486,14 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
   // This method cannot be complemented.
   /**
    * @param {class} executingTestClass
-   * @param {string[]} arrayErrorMayOccur
+   * @param {string[]} arraySkippingTest
    * @return {string[]}
   */
-  Executor.prototype.executeTestGas = function(executingTestClass, arrayErrorMayOccur=[]){
+  Executor.prototype.executeTestGas = function(executingTestClass, arraySkippingTest=[]){
     if(!isObjectType(executingTestClass, "Function")){
       throw new TypeError("executingTestClass must be Function type.");
     }
-    if(!isObjectType(arrayErrorMayOccur, "Array")){
+    if(!isObjectType(arraySkippingTest, "Array")){
       throw new TypeError("arrayErrorMayOccur must be Array type.");
     }
     let descriptorObj = Object.getOwnPropertyDescriptors(executingTestClass.prototype);
@@ -516,7 +516,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
     const testExeSecond = mathRound((exeEnd - exeStart) / 1000, 2);
 
     console.info(`...... TestGAS terminated: \"${executingTestClass.name}\".`);
-    const objToDisplay = this.outputResultOfTest(descriptorKeys, this.failureFuncs, this.failureStatements, testExeSecond, arrayErrorMayOccur);
+    const objToDisplay = this.outputResultOfTest(descriptorKeys, this.failureFuncs, this.failureStatements, testExeSecond, arraySkippingTest);
     return objToDisplay;
   }
 
@@ -561,7 +561,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
 
     const lengthOfRemovedArray = objToDisplay[this.keyOfRemovedArrays][0].length;
     if(lengthOfRemovedArray !== 0){
-      console.info(`=================== ${lengthOfRemovedArray} fails are inspected but ignored,${latterHalfOfResultStatement}===================`);
+      console.info(`=================== ${lengthOfRemovedArray} skipped,${latterHalfOfResultStatement}===================`);
     }else{
       console.info(`===================${latterHalfOfResultStatement}===================`);
     }

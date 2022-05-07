@@ -4,6 +4,18 @@
 
 The `TestGAS` library makes it easy to write small tests on `Google Apps Script`, yet scales to support complex functional testing for applications and libraries.
 
+# Usage
+
+## Import
+
+You can import this library by this script ID.
+
+```
+1CRjWWWYfjD7WzPl43RB1BiD7XDLJmR03eEpXr2LMh75yAq5qMlczOIfm
+```
+
+## Getting started
+
 An example of a simple test:
 
 ```javascript
@@ -45,7 +57,15 @@ AssertionError: Actual value is not equal to Expected value.
 =================== 1 failed, 1 passed of all 2 tests in 0.01 seconds ===================
 ```
 
-See [getting-started]() for more examples.
+## Enumerate testcases that you don't wanna test
+
+```javascript
+
+```
+
+```shell_sessoin
+
+```
 
 # Features
 
@@ -284,22 +304,6 @@ classDiagram
   assertError              --> outputErrorStack : depend
   assertNotError           --> outputErrorStack : depend
 
-  %% executeTestGas --o Executor
-  %% outputResultOfTest --o Executor
-  %% removeArrayItemToDisplay --o Executor
-  %% removeDuplicatedItems --o Executor
-  %% initializeArrays --o Executor
-  %% arrayLengthIsOneToItem --o Executor
-  %% pushEmptyItemToArray --o Executor
-  %% assertEquals --o Executor
-  %% assertEqualsArrayLength --o Executor
-  %% assertEqualsArrayItems --o Executor
-  %% assertNotEquals --o Executor
-  %% assertError --o Executor
-  %% assertNotError --o Executor
-  %% outputErrorStack --o Executor
-  %% getInitialOfFailureStatement --o Executor
-
   Executor o-- executeTestGas
   Executor o-- outputResultOfTest
   Executor o-- removeArrayItemToDisplay
@@ -322,11 +326,11 @@ classDiagram
 
 # Bugs/Requests
 
-Please use the [GitHub issue tracker]() to submit bugs or request features.
+Please use the [GitHub issue tracker](https://github.com/landmaster135/TestGAS/issues) to submit bugs or request features.
 
 # Changelog
 
-Consult the [Changelog page]() for fixes and enhancements of each version.
+Consult the [Release page](https://github.com/pytest-dev/pytest/releases) for fixes and enhancements of each version.
 
 # Project
 

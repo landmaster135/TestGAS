@@ -282,6 +282,7 @@ Consult the [Changelog page]() for fixes and enhancements of each version.
 # Project
 
 - [Alpha Dev](https://github.com/landmaster135/TestGAS/projects/1)
+- [Beta Dev](https://github.com/landmaster135/TestGAS/projects/2)
 
 # License
 

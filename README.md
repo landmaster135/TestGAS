@@ -70,6 +70,16 @@ classDiagram
     return boolean
   }
 
+  class Error {
+
+  }
+  class AssertionError {
+    string name
+  }
+  class ValueError {
+    string name
+  }
+
   class getMidWord {
     string srcWord
     string headWord
@@ -122,20 +132,6 @@ classDiagram
   class getThisFuncName {
     Function Function
     return string
-  }
-
-  class Error {
-
-  }
-  class AssertionError {
-    string name
-  }
-  class ValueError {
-    string name
-  }
-
-  class createExecutor {
-
   }
 
   class outputResultOfTest {
@@ -223,6 +219,36 @@ classDiagram
     string endMark
     return string
   }
+
+  class createExecutor {
+
+  }
+  class Executor {
+    string keyOfArraysToDisplay
+    string keyOfRemovedArrays
+    string executingTestFunc
+    string[] failureFuncs
+    string[] failureStatements
+    string markOfTestStarts
+    string markOfTestEnds
+    string actualStatementMark
+    string expectedStatementMark
+    string actualExceptionStatementMark
+    string expectedExceptionStatementMark
+  }
+
+  AssertionError           --|> Error : extends
+  ValueError               --|> Error : extends
+  mathFloor                --> ValueError : depend
+  mathCeil                 --> ValueError : depend
+  mathRound                --> ValueError : depend
+  assertEquals             --> AssertionError : depend
+  assertNotEquals          --> AssertionError : depend
+  assertEqualsArrayLength  --> AssertionError : depend
+  assertEqualsArrayItems   --> AssertionError : depend
+  assertError              --> AssertionError : depend
+  assertNotError           --> AssertionError : depend
+  
   getMidWords              --> getMidWord : depend
   outputResultOfTest       --> isLengthOfArraySame : depend
   removeArrayItemToDisplay --> isLengthOfArraySame : depend
@@ -243,17 +269,6 @@ classDiagram
   removeItemsByValues      --> isObjectType : depend
   getThisFuncName          --> isObjectType : depend
   outputErrorStack         --> isObjectType : depend
-  AssertionError           --|> Error : extends
-  ValueError               --|> Error : extends
-  mathFloor                --> ValueError : depend
-  mathCeil                 --> ValueError : depend
-  mathRound                --> ValueError : depend
-  assertEquals             --> AssertionError : depend
-  assertNotEquals          --> AssertionError : depend
-  assertEqualsArrayLength  --> AssertionError : depend
-  assertEqualsArrayItems   --> AssertionError : depend
-  assertError              --> AssertionError : depend
-  assertNotError           --> AssertionError : depend
 
   executeTestGas           --> outputResultOfTest : depend
   outputResultOfTest       --> removeArrayItemToDisplay : depened
@@ -268,6 +283,40 @@ classDiagram
   assertEqualsArrayItems   --> outputErrorStack : depend
   assertError              --> outputErrorStack : depend
   assertNotError           --> outputErrorStack : depend
+
+  %% executeTestGas --o Executor
+  %% outputResultOfTest --o Executor
+  %% removeArrayItemToDisplay --o Executor
+  %% removeDuplicatedItems --o Executor
+  %% initializeArrays --o Executor
+  %% arrayLengthIsOneToItem --o Executor
+  %% pushEmptyItemToArray --o Executor
+  %% assertEquals --o Executor
+  %% assertEqualsArrayLength --o Executor
+  %% assertEqualsArrayItems --o Executor
+  %% assertNotEquals --o Executor
+  %% assertError --o Executor
+  %% assertNotError --o Executor
+  %% outputErrorStack --o Executor
+  %% getInitialOfFailureStatement --o Executor
+
+  Executor o-- executeTestGas
+  Executor o-- outputResultOfTest
+  Executor o-- removeArrayItemToDisplay
+  Executor o-- removeDuplicatedItems
+  Executor o-- initializeArrays
+  Executor o-- arrayLengthIsOneToItem
+  Executor o-- pushEmptyItemToArray
+  Executor o-- assertEquals
+  Executor o-- assertEqualsArrayLength
+  Executor o-- assertEqualsArrayItems
+  Executor o-- assertNotEquals
+  Executor o-- assertError
+  Executor o-- assertNotError
+  Executor o-- outputErrorStack
+  Executor o-- getInitialOfFailureStatement
+
+  createExecutor --> Executor : call
 
 ```
 

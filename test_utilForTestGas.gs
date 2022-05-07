@@ -3965,8 +3965,8 @@ class Test_utilForTestGas{
   //   const failureFuncs = [];
   //   const failureStatements = [];
   //   const testExeSecond = 12.34;
-  //   const arrayErrorMayOccur = [];
-  //   testOfTestGas.outputResultOfTest(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur);
+  //   const arraySkippingTest = [];
+  //   testOfTestGas.outputResultOfTest(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arraySkippingTest);
   // }
 
   // noraml systems
@@ -3990,10 +3990,10 @@ class Test_utilForTestGas{
       }
     }
     const executingTestClass = TestClassForTestGas;
-    const arrayErrorMayOccur = [];
+    const arraySkippingTest = [];
     const funcName = getThisFuncName(this.value);
     console.log(`${funcName}${tester.markOfTestStarts}`);
-    const objToDisplay = testOfTestGas.executeTestGas(executingTestClass, arrayErrorMayOccur);
+    const objToDisplay = testOfTestGas.executeTestGas(executingTestClass, arraySkippingTest);
     console.log(`${funcName}${tester.markOfTestEnds}`);
 
     // test for test class.
@@ -4050,16 +4050,16 @@ class Test_utilForTestGas{
       }
     }
     const executingTestClass = TestClassForTestGas;
-    const arrayErrorMayOccur = ["test_2"];
+    const arraySkippingTest = ["test_2"];
     const funcName = getThisFuncName(this.value);
     console.log(`${funcName}${tester.markOfTestStarts}`);
-    const objToDisplay = testOfTestGas.executeTestGas(executingTestClass, arrayErrorMayOccur);
+    const objToDisplay = testOfTestGas.executeTestGas(executingTestClass, arraySkippingTest);
     console.log(`${funcName}${tester.markOfTestEnds}`);
 
     // test for test class.
     tester.assertEquals(testOfTestGas.keyOfArraysToDisplay, "arraysToDisplay");
     tester.assertEquals(testOfTestGas.keyOfRemovedArrays, "removedArrays");
-    tester.assertEqualsArrayItems(testOfTestGas.failureFuncs, arrayErrorMayOccur);
+    tester.assertEqualsArrayItems(testOfTestGas.failureFuncs, arraySkippingTest);
     let expectedFailureStatements = ["AssertionError: Actual value is not equal to Expected value.\n    at Object.test_2 [as value] (test_utilForTestGas:3018:23)\n    at Executor.executeTestGas (utilForTestGas:324:55)\n    at Object.test_executeTestGas_1_1 [as value] (test_utilForTestGas:3030:44)\n    at Executor.executeTestGas (utilForTestGas:324:55)\n    at execute_Test_utilForTestGas (test_utilForTestGas:3293:29)\n  actual  :  true\n  expected:  false"]
     let endMark = "at Object.test_2";
     let initialOfFailureStatement = tester.getInitialOfFailureStatement(expectedFailureStatements[0], endMark);
@@ -4073,7 +4073,7 @@ class Test_utilForTestGas{
     const actualRemovedFailureStatements = objToDisplay[testOfTestGas.keyOfRemovedArrays][1];
     const expectedDisplayFailureFuncs = [];
     const expectedDisplayFailureStatements = [];
-    const expectedRemovedFailureFuncs = arrayErrorMayOccur;
+    const expectedRemovedFailureFuncs = arraySkippingTest;
     const expectedRemovedFailureStatements = expectedFailureStatements;
     
     // test return value for by test class.
@@ -4093,8 +4093,8 @@ class Test_utilForTestGas{
   test_executeTestGas_2_1(){
     let testOfTestGas = new Executor();
     const executingTestClass = "function";
-    const arrayErrorMayOccur = ["test1", "test2"]
-    tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arrayErrorMayOccur], TypeError);
+    const arraySkippingTest = ["test1", "test2"]
+    tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arraySkippingTest], TypeError);
   }
 
   // abnoraml systems
@@ -4113,8 +4113,8 @@ class Test_utilForTestGas{
       }
     }
     const executingTestClass = TestClassForTestGas;
-    const arrayErrorMayOccur = "test1"
-    tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arrayErrorMayOccur], TypeError);
+    const arraySkippingTest = "test1"
+    tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arraySkippingTest], TypeError);
   }
 
   // abnoraml systems
@@ -4133,8 +4133,8 @@ class Test_utilForTestGas{
       }
     }
     const executingTestClass = TestClassForTestGas;
-    const arrayErrorMayOccur = null;
-    tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arrayErrorMayOccur], TypeError);
+    const arraySkippingTest = null;
+    tester.assertError(testOfTestGas.executeTestGas, [executingTestClass, arraySkippingTest], TypeError);
   }
 
 }

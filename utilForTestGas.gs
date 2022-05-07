@@ -306,10 +306,10 @@ function createExecutor() {
 /**
  * execute TestGAS
  * @param {class} executingTestClass
- * @param {string[]} arrayErrorMayOccur
+ * @param {string[]} arraySkippingTest
  * @return {string[]}
  */
-function executeTestGas(executingTestClass, arrayErrorMayOccur=[]){
+function executeTestGas(executingTestClass, arraySkippingTest=[]){
   throw new Error("Call this method after calling createExecutor.");
 }
 
@@ -319,10 +319,10 @@ function executeTestGas(executingTestClass, arrayErrorMayOccur=[]){
 //  * @param {string[]} failureFuncs
 //  * @param {string[]} failureStatements
 //  * @param {number} testExeSecond
-//  * @param {string[]} arrayErrorMayOccur
+//  * @param {string[]} arraySkippingTest
 //  * @return {object}
 //  */
-// function outputResultOfTest(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur=[]){
+// function outputResultOfTest(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arraySkippingTest=[]){
 //   throw new Error("Call this method after calling createExecutor.");
 // }
 
@@ -494,7 +494,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
       throw new TypeError("executingTestClass must be Function type.");
     }
     if(!isObjectType(arraySkippingTest, "Array")){
-      throw new TypeError("arrayErrorMayOccur must be Array type.");
+      throw new TypeError("arraySkippingTest must be Array type.");
     }
     let descriptorObj = Object.getOwnPropertyDescriptors(executingTestClass.prototype);
     let descriptorKeys = Object.keys(descriptorObj);
@@ -525,28 +525,28 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
    * @param {string[]} failureFuncs
    * @param {string[]} failureStatements
    * @param {number} testExeSecond
-   * @param {string[]} arrayErrorMayOccur
+   * @param {string[]} arraySkippingTest
    * @return {string{}[]}
   */
-  Executor.prototype.outputResultOfTest = function(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur=[]){
+  Executor.prototype.outputResultOfTest = function(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arraySkippingTest=[]){
     if(!isLengthOfArraySame([failureFuncs, failureStatements])){
       throw new RangeError("Length of \"failureFuncs\" don't match length of \"failureStatements\"");
     }
     const srcFailureArrays = [failureFuncs, failureStatements]
     const judgeArrayIndex = 0;
     
-    const isArgRecieved = arrayErrorMayOccur.length !== 0;
+    const isArgRecieved = arraySkippingTest.length !== 0;
     let arraysToDisplay = [];
     let objToDisplay = {};
-    objToDisplay = this.removeArrayItemToDisplay(srcFailureArrays, judgeArrayIndex, arrayErrorMayOccur);
+    objToDisplay = this.removeArrayItemToDisplay(srcFailureArrays, judgeArrayIndex, arraySkippingTest);
     // if(isArgRecieved){
-    //   objToDisplay = this.removeArrayItemToDisplay(srcFailureArrays, judgeArrayIndex, arrayErrorMayOccur);
+    //   objToDisplay = this.removeArrayItemToDisplay(srcFailureArrays, judgeArrayIndex, arraySkippingTest);
     // }else{
     //   objToDisplay[this.keyOfArraysToDisplay] = srcFailureArrays;
     //   objToDisplay[this.keyOfRemovedArrays] = [[], []];
     // }
 
-    // objToDisplay = this.removeArrayItemToDisplay(srcFailureArrays, judgeArrayIndex, arrayErrorMayOccur);
+    // objToDisplay = this.removeArrayItemToDisplay(srcFailureArrays, judgeArrayIndex, arraySkippingTest);
 
     console.info("====================================================== FAILURES ======================================================");
     for(let i = 0; i < objToDisplay[this.keyOfArraysToDisplay][0].length; i++){

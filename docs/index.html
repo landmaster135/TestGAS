@@ -54,37 +54,80 @@ description: Top page of reference about TestGAS
         <p><code>Executor</code> runs test and display result of test.</p>
         <h4>Example</h4>
 {% highlight javascript %}
-  const fun=function(){
-    console.log("test");
-  };
+let tester = createExecutor();
+class Test_TestGas{
+  test_plus_1_1(){
+    const actual = 1 + 2;
+    const expected = 3;
+    tester.assertEquals(actual, expected);
+  }
+  test_plus_1_2(){
+    const actual = 2 + 3;
+    const expected = 5;
+    tester.assertEquals(actual, expected);
+  }
+}
+function execute_Test_utilForTestGas(){
+  let failureFuncs = tester.executeTestGas(Test_TestGas);
+}
 {% endhighlight %}
 
       <h3 id="executetestgas">Executor.executeTestGas(executingTestClass, arraySkippingTest=[])</h3>
         <p>Runs test and display result of test.</p>
         <h4>Example</h4>
 {% highlight javascript %}
-  const fun=function(){
-    console.log("test");
-  };
+class Test_TestGas{
+  test_plus_1_1(){
+    const actual = 1 + 2;
+    const expected = 3;
+    tester.assertEquals(actual, expected);
+  }
+  test_plus_1_2(){
+    const actual = 2 + 3;
+    const expected = 5;
+    tester.assertEquals(actual, expected);
+  }
+  test_plus_1_3(){
+    const actual = 2 + 3;
+    const expected = 5;
+    tester.assertEquals(actual, expected);
+  }
+}
+function execute_Test_utilForTestGas(){
+  const arraySkippingTest = ["test_plus_1_3"];
+  let failureFuncs = tester.executeTestGas(Test_TestGas, arraySkippingTest);
+}
 {% endhighlight %}
+          <p><code>tester.executeTestGas(Test_TestGas)</code> returns array of functions that test failed from <code>Test_TestGas</code> object.</p>
+        <hr>
+        <p>Furthermore, you can specify testcases that you don't wanna test.</p>
+        <p>In the code above, <code>test_plus_1_3</code> is skipped in the test.</p>
 
       <h3 id="assertequals">Executor.assertEquals(actual, expected, willOutputErrorToReport=true)</h3>
         <p>Asserts that actual value and expected value are same or not.</p>
-        <h4>Example</h4>
-{% highlight javascript %}
-  const fun=function(){
-    console.log("test");
-  };
-{% endhighlight %}
 
       <h3 id="assertequalsarraylength">Executor.assertEqualsArrayLength(actual, expected, willOutputErrorToReport=true)</h3>
         <p>Asserts that actual array and expected array are same or not in the point of view of length.</p>
         <h4>Example</h4>
 {% highlight javascript %}
-  const fun=function(){
-    console.log("test");
-  };
+let tester = createExecutor();
+class Test_TestGas{
+  test_arrayLength_1_1(){
+    const actual = ["t", "e", "s", "t"];
+    const expected = ["g", "a", "p", "s"];
+    tester.assertEquals(actual, expected);
+  }
+  test_arrayLength_1_2(){
+    const actual = ["t", "e", "s", "t"];
+    const expected = ["t", "e", "s", "t", "g"];
+    tester.assertEquals(actual, expected);
+  }
+}
+function execute_Test_utilForTestGas(){
+  let failureFuncs = tester.executeTestGas(Test_TestGas);
+}
 {% endhighlight %}
+        <p><code>test_arrayLength_1_1</code>'s test is passing. <code>test_arrayLength_1_2</code>'s test is failing.</p>
 
       <h3 id="assertequalsarrayitems">Executor.assertEqualsArrayItems(actual, expected, willOutputErrorToReport=true)</h3>
         <p>Asserts that actual array and expected array are same or not.</p>
@@ -104,7 +147,7 @@ description: Top page of reference about TestGAS
   };
 {% endhighlight %}
 
-      <h3 id="asserterror">Executor.assertError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
+      <h3 id="asserterror">Executor.assertError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
         <p>Asserts that a function call raises expected_exception or raise a failure exception otherwise.</p>
         <h4>Example</h4>
 {% highlight javascript %}
@@ -113,14 +156,22 @@ description: Top page of reference about TestGAS
   };
 {% endhighlight %}
 
-      <h3 id="assertnoterror">Executor.assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
+      <h3 id="assertnoterror">Executor.assertNotError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
         <p>Asserts that a function call <b>NOT</b> raises expected_exception or raise a failure exception otherwise.</p>
         <h4>Example</h4>
 {% highlight javascript %}
-  const fun=function(){
-    console.log("test");
-  };
+let tester = createExecutor();
+class Test_TestGas{
+  test_arrayLengthIsOneToItem_2_4(){
+    const arrays = ["aaa", "bbb", "ccc", "vvv", "wwww", "xxxxx"];
+    tester.assertNotError(arrayLengthIsOneToItem, [arrays], RangeError);
+  }
+}
+function execute_Test_utilForTestGas(){
+  let failureFuncs = tester.executeTestGas(Test_TestGas);
+}
 {% endhighlight %}
+          <p>If that function <code>arrayLengthIsOneToItem(arrays)</code> doesn't throw <code>RangeError</code>, that assertion is passing.</p>
 
 
 </body>

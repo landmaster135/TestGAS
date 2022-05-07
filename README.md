@@ -57,18 +57,13 @@ AssertionError: Actual value is not equal to Expected value.
 =================== 1 failed, 1 passed of all 2 tests in 0.01 seconds ===================
 ```
 
-## More detail
-
-View [Reference](https://landmaster135.github.io/TestGAS/).
-
 # Features
 
-- You won't lose test-executing function if you write test functions as test class.
 - Require Apps Script runtime powered by V8.
 
 # Documentation
 
-For full documentation, including installation, tutorials and PDF documents, please see [these docs]().
+View [Reference](https://landmaster135.github.io/TestGAS/).
 
 # Design Diagram of System
 

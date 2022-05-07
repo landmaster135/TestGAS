@@ -65,7 +65,7 @@ AssertionError: Actual value is not equal to Expected value.
 
 View [Reference](https://landmaster135.github.io/TestGAS/).
 
-# Design Diagram of System
+# Design Diagram of System for Dev
 
 ```mermaid
 classDiagram

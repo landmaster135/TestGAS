@@ -26,14 +26,14 @@ description: Top page of reference about TestGAS
 
 
   <h1>TestGAS helps you write better Google Apps Script</h1>
-    <p>The TestGAS library makes it easy to write small tests on Google Apps Script, yet scales to support complex functional testing for applications and libraries.</p>
+    <p>The <code>TestGAS</code> library makes it easy to write small tests on <code>Google Apps Script</code>, yet scales to support complex functional testing for applications and libraries.</p>
 
     <h2>Usage</h2>
       <h3>Import</h3>
         <p>You can import this library by this script ID.</p>
         <pre>1CRjWWWYfjD7WzPl43RB1BiD7XDLJmR03eEpXr2LMh75yAq5qMlczOIfm</pre>
-    <h3>Getting started</h3>
-      <p>An example of a simple test:</p>
+      <h3>Getting started</h3>
+        <p>An example of a simple test:</p>
 {% highlight javascript %}
 // content of test_sample.gs
 let tester = TestGAS.createExecutor();
@@ -55,8 +55,8 @@ function execute_Test_sample(){
   let failureFuncs = tester.executeTestGas(Test_sample);
 }
 {% endhighlight %}
-    <p>Result of executing <code>execute_Test_sample</code>:</p>
-    <pre>[ 'test_sample_1', 'test_sample_2' ]
+        <p>Result of executing <code>execute_Test_sample</code>:</p>
+        <pre>[ 'test_sample_1', 'test_sample_2' ]
 TestGAS starts: "Test_sample"
 ...... TestGAS terminated: "Test_sample".
 ====================================================== FAILURES ======================================================
@@ -114,9 +114,9 @@ expected: 4
             </thaed>
            <tbody>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>(nothing)</td>
+              <td>(nothing)</td>
+              <td>(nothing)</td>
             </tr>
            </tbody>
           </table>

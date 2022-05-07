@@ -24,32 +24,32 @@ description: Top page of reference about TestGAS
   <h1>TestGAS helps you write better Google Apps Script</h1>
     <h2>Methods</h2>
       <li>
-        <a href="#createexecutor">createExecutor</a>
+        <a href="#createexecutor" id="id01">createExecutor</a>
       </li>
       <li>
-        <a href="#executetestgas">Executor.executeTestGas</a>
+        <a href="#executetestgas" id="id02">Executor.executeTestGas</a>
       </li>
       <li>
-        <a href="#assertequals">Executor.assertEquals</a>
+        <a href="#assertequals" id="id03">Executor.assertEquals</a>
       </li>
       <li>
-        <a href="#assertequalsarraylength">Executor.assertEqualsArrayLength</a>
+        <a href="#assertequalsarraylength" id="id04">Executor.assertEqualsArrayLength</a>
       </li>
       <li>
-        <a href="#assertequalsarrayitems">Executor.assertEqualsArrayItems</a>
+        <a href="#assertequalsarrayitems" id="id05">Executor.assertEqualsArrayItems</a>
       </li>
       <li>
-        <a href="#assertnotequals">Executor.assertNotEquals</a>
+        <a href="#assertnotequals" id="id06">Executor.assertNotEquals</a>
       </li>
       <li>
-        <a href="#asserterror">Executor.assertError</a>
+        <a href="#asserterror" id="id07">Executor.assertError</a>
       </li>
       <li>
-        <a href="#assertnoterror">Executor.assertNotError</a>
+        <a href="#assertnoterror" id="id08">Executor.assertNotError</a>
       </li>
 
     <h2>Reference</h2>
-      <h3 id="createexecutor">createExecutor ()</h3>
+      <h3 id="createexecutor"><a href="#id01">createExecutor ()</a></h3>
         <p>Creates <code>Executor</code> object.</p>
         <p><code>Executor</code> runs test and display result of test.</p>
         <h4>Example</h4>
@@ -72,7 +72,7 @@ function execute_Test_utilForTestGas(){
 }
 {% endhighlight %}
 
-      <h3 id="executetestgas">Executor.executeTestGas (executingTestClass, arraySkippingTest=[])</h3>
+      <h3 id="executetestgas"><a href="#id02">xecutor.executeTestGas (executingTestClass, arraySkippingTest=[])</a>E</h3>
         <p>Runs test and display result of test.</p>
         <h4>Example</h4>
 {% highlight javascript %}
@@ -103,7 +103,7 @@ function execute_Test_utilForTestGas(){
         <p>Furthermore, you can specify testcases that you don't wanna test.</p>
         <p>In the code above, <code>test_plus_1_3</code> is skipped in the test.</p>
 
-      <h3 id="assertequals">Executor.assertEquals (actual, expected, willOutputErrorToReport=true)</h3>
+      <h3 id="assertequals"><a href="#id03">Executor.assertEquals (actual, expected, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that actual value and expected value are same or not.</p>
 {% highlight javascript %}
 let tester = createExecutor();
@@ -125,7 +125,7 @@ function execute_Test_utilForTestGas(){
 {% endhighlight %}
         <p><code>test_arrayLength_1_1</code>'s test is passing. <code>test_arrayLength_1_2</code>'s test is failing.</p>
 
-      <h3 id="assertequalsarraylength">Executor.assertEqualsArrayLength (actual, expected, willOutputErrorToReport=true)</h3>
+      <h3 id="assertequalsarraylength"><a href="#id04">Executor.assertEqualsArrayLength (actual, expected, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that actual array and expected array are same or not in the point of view of length.</p>
         <h4>Example</h4>
 {% highlight javascript %}
@@ -148,7 +148,7 @@ function execute_Test_utilForTestGas(){
 {% endhighlight %}
         <p><code>test_arrayLength_1_1</code>'s test is passing. <code>test_arrayLength_1_2</code>'s test is failing.</p>
 
-      <h3 id="assertequalsarrayitems">Executor.assertEqualsArrayItems (actual, expected, willOutputErrorToReport=true)</h3>
+      <h3 id="assertequalsarrayitems"><a href="#id05">Executor.assertEqualsArrayItems (actual, expected, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that actual array and expected array are same or not.</p>
         <h4>Example</h4>
 {% highlight javascript %}
@@ -174,9 +174,10 @@ function execute_Test_utilForTestGas(){
   let failureFuncs = tester.executeTestGas(Test_TestGas);
 }
 {% endhighlight %}
-        <p><code>test_arrayLength_1_1</code>'s test is passing. Test of <code>test_arrayLength_1_2</code> and <code>test_arrayLength_1_3</code> are failing.</p>
+        <p><code>test_arrayLength_1_1</code>'s test is passing.</p>
+        <p>Tests of <code>test_arrayLength_1_2</code> and <code>test_arrayLength_1_3</code> are failing.</p>
 
-      <h3 id="assertnotequals">Executor.assertNotEquals (actual, expected)</h3>
+      <h3 id="assertnotequals"><a href="#id06">Executor.assertNotEquals (actual, expected)</a></h3>
         <p>Asserts that actual value and expected value are <b>NOT</b> same or same.</p>
         <h4>Example</h4>
 {% highlight javascript %}
@@ -199,7 +200,7 @@ function execute_Test_utilForTestGas(){
 {% endhighlight %}
         <p><code>test_arrayLength_1_1</code>'s test is passing. <code>test_arrayLength_1_2</code>'s test is failing.</p>
 
-      <h3 id="asserterror">Executor.assertError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
+      <h3 id="asserterror"><a href="#id07">Executor.assertError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that a function call raises expected_exception or raise a failure exception otherwise.</p>
         <h4>Example</h4>
 {% highlight javascript %}
@@ -216,7 +217,7 @@ function execute_Test_utilForTestGas(){
 {% endhighlight %}
         <p>If that function <code>arrayLengthIsOneToItem(arrays)</code> throws <code>RangeError</code>, that assertion is passing.</p>
 
-      <h3 id="assertnoterror">Executor.assertNotError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</h3>
+      <h3 id="assertnoterror"><a href="#id08">Executor.assertNotError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that a function call <b>NOT</b> raises expected_exception or raise a failure exception otherwise.</p>
         <h4>Example</h4>
 {% highlight javascript %}

@@ -23,7 +23,7 @@ function isLengthOfArraySame(arrays=[]){
  * @param {string[]} srcWordArray
  * @param {string} headWord
  * @param {string} tailWord
- * @return {string}
+ * @return {string[]}
 */
 function getMidWords(srcWords, headWord, tailWord){
   let candSrcWords = [];
@@ -526,7 +526,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
    * @param {string[]} failureStatements
    * @param {number} testExeSecond
    * @param {string[]} arrayErrorMayOccur
-   * @return {object}
+   * @return {string{}[]}
   */
   Executor.prototype.outputResultOfTest = function(descriptorKeys, failureFuncs, failureStatements, testExeSecond, arrayErrorMayOccur=[]){
     if(!isLengthOfArraySame([failureFuncs, failureStatements])){

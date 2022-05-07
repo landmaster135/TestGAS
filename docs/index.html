@@ -4,7 +4,7 @@ title: Reference
 description: Top page of reference about TestGAS
 ---
 <head>
-  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="path/to/img/favicon.ico">
 </head>
 
 <body>
@@ -171,7 +171,7 @@ function execute_Test_utilForTestGas(){
             <tr>
               <td>willOutputErrorToReport</td>
               <td>boolean</td>
-              <td>Set <code>true</code> if you wanna display result of a testcase.</td>
+              <td>Set <code>true</code> if you wanna display result of a testcase. Set <code>false</code> otherwise.</td>
             </tr>
           </tbody>
         </table>
@@ -220,7 +220,7 @@ function execute_Test_utilForTestGas(){
             <tr>
               <td>willOutputErrorToReport</td>
               <td>boolean</td>
-              <td>Set <code>true</code> if you wanna display result of a testcase.</td>
+              <td>Set <code>true</code> if you wanna display result of a testcase. Set <code>false</code> otherwise.</td>
             </tr>
           </tbody>
         </table>
@@ -248,32 +248,32 @@ function execute_Test_utilForTestGas(){
       <h3 id="assertequalsarrayitems"><a href="#id05">Executor.assertEqualsArrayItems (actual, expected, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that actual array and expected array are same or not.</p>
         <h4>Arguments</h4>
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>type</th>
-              <th>description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>actual</td>
-              <td>any</td>
-              <td>Actual array.</td>
-            </tr>
-            <tr>
-              <td>expected</td>
-              <td>any</td>
-              <td>Expected array.</td>
-            </tr>
-            <tr>
-              <td>willOutputErrorToReport</td>
-              <td>boolean</td>
-              <td>Set <code>true</code> if you wanna display result of a testcase.</td>
-            </tr>
-          </tbody>
-        </table>
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>type</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>actual</td>
+                <td>any</td>
+                <td>Actual array.</td>
+              </tr>
+              <tr>
+                <td>expected</td>
+                <td>any</td>
+                <td>Expected array.</td>
+              </tr>
+              <tr>
+                <td>willOutputErrorToReport</td>
+                <td>boolean</td>
+                <td>Set <code>true</code> if you wanna display result of a testcase. Set <code>false</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
         <h4>Example</h4>
 {% highlight javascript %}
 let tester = createExecutor();
@@ -304,27 +304,27 @@ function execute_Test_utilForTestGas(){
       <h3 id="assertnotequals"><a href="#id06">Executor.assertNotEquals (actual, expected)</a></h3>
         <p>Asserts that actual value and expected value are <b>NOT</b> same or same.</p>
         <h4>Arguments</h4>
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>type</th>
-              <th>description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>actual</td>
-              <td>any</td>
-              <td>Actual value.</td>
-            </tr>
-            <tr>
-              <td>expected</td>
-              <td>any</td>
-              <td>Expected value.</td>
-            </tr>
-          </tbody>
-        </table>
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>type</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>actual</td>
+                <td>any</td>
+                <td>Actual value.</td>
+              </tr>
+              <tr>
+                <td>expected</td>
+                <td>any</td>
+                <td>Expected value.</td>
+              </tr>
+            </tbody>
+          </table>
         <h4>Example</h4>
 {% highlight javascript %}
 let tester = createExecutor();
@@ -348,6 +348,38 @@ function execute_Test_utilForTestGas(){
 
       <h3 id="asserterror"><a href="#id07">Executor.assertError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that a function call raises expected_exception or raise a failure exception otherwise.</p>
+        <h4>Arguments</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>type</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>func</td>
+                <td>Function</td>
+                <td>A function targeted for test.</td>
+              </tr>
+              <tr>
+                <td>funcArgs</td>
+                <td>any[]</td>
+                <td>Arguments of function.</td>
+              </tr>
+              <tr>
+                <td>expectedErrorName</td>
+                <td>Error</td>
+                <td>Error name you expect.</td>
+              </tr>
+              <tr>
+                <td>willOutputErrorToReport</td>
+                <td>boolean</td>
+                <td>Set <code>true</code> if you wanna display result of a testcase. Set <code>false</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
         <h4>Example</h4>
 {% highlight javascript %}
 let tester = createExecutor();
@@ -365,6 +397,38 @@ function execute_Test_utilForTestGas(){
 
       <h3 id="assertnoterror"><a href="#id08">Executor.assertNotError (func, funcArgs, expectedErrorName, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that a function call <b>NOT</b> raises expected_exception or raise a failure exception otherwise.</p>
+        <h4>Arguments</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>type</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>func</td>
+                <td>Function</td>
+                <td>A function targeted for test.</td>
+              </tr>
+              <tr>
+                <td>funcArgs</td>
+                <td>any[]</td>
+                <td>Arguments of function.</td>
+              </tr>
+              <tr>
+                <td>expectedErrorName</td>
+                <td>Error</td>
+                <td>Error name you don't expect that it may thrown.</td>
+              </tr>
+              <tr>
+                <td>willOutputErrorToReport</td>
+                <td>boolean</td>
+                <td>Set <code>true</code> if you wanna display result of a testcase. Set <code>false</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
         <h4>Example</h4>
 {% highlight javascript %}
 let tester = createExecutor();

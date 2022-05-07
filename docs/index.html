@@ -148,6 +148,33 @@ function execute_Test_utilForTestGas(){
 
       <h3 id="assertequals"><a href="#id03">Executor.assertEquals (actual, expected, willOutputErrorToReport=true)</a></h3>
         <p>Asserts that actual value and expected value are same or not.</p>
+        <h4>Arguments</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>type</th>
+              <th>description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>actual</td>
+              <td>any</td>
+              <td>Actual value.</td>
+            </tr>
+            <tr>
+              <td>expected</td>
+              <td>any</td>
+              <td>Expected value.</td>
+            </tr>
+            <tr>
+              <td>willOutputErrorToReport</td>
+              <td>boolean</td>
+              <td>Set <code>true</code> if you wanna display result of a testcase.</td>
+            </tr>
+          </tbody>
+        </table>
 {% highlight javascript %}
 let tester = createExecutor();
 class Test_TestGas{

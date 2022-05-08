@@ -290,9 +290,9 @@ class ValueError extends Error{
 // -------------------- Factory method: Start ---------------------------------------------------------------
 
 /**
- * Executor classをインスタンス化するためのファクトリメソッド
+ * factory method to create instance of Executor class
  * @param {void}
- * @return {Executor} ←の{}の中にライブラリのGASプロジェクトと同じ名前を指定する。
+ * @return {Executor}
  */
 function createExecutor() {
   return new Executor();
@@ -469,7 +469,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
 
 // Classメソッド自体は補完させたくないので隠す
 (function(global){
-  function Executor(fuga) {
+  function Executor() {
     this.keyOfArraysToDisplay = "arraysToDisplay";
     this.keyOfRemovedArrays = "removedArrays";
     this.executingTestFunc = "";
@@ -1061,33 +1061,3 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
   global.Executor = Executor;
 })(this);
 
-// /**
-//  * HogeClassをインスタンス化するためのファクトリメソッド
-//  * @param {string} fuga HogeClassのコンストラクタ引数を指定
-//  * @return {Hoge} ←の{}の中にライブラリのGASプロジェクトと同じ名前を指定する。
-//  */
-// function createHoge(fuga) {
-//   return new HogeClass(fuga);
-// }
-
-// //HogeClassの中で補完させたいメソッドのダミーメソッドをグローバルメソッドとして作る。
-// /**
-//  * Fugaを取得します。
-//  * @return {string} fuga
-//  */
-// function getFuga() {
-//   throw new Error('createHogeを呼び出してから呼び出してください。')
-// }
-
-
-// //HogeClassメソッド自体は補完させたくないので隠す
-// (function(global){
-//   function HogeClass(fuga) {
-//     this.fuga = fuga;
-//   }
-//   //このHogeClass.getFugaは補完できない
-//   HogeClass.prototype.getFuga = function() {
-//     return this.fuga;
-//   };
-//   global.HogeClass = HogeClass;
-// })(this);

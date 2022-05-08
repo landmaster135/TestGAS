@@ -305,7 +305,7 @@ function createExecutor() {
 
 /**
  * execute TestGAS
- * @param {class} executingTestClass
+ * @param {object} executingTestClass
  * @param {string[]} arraySkippingTest
  * @return {string[]}
  */
@@ -485,7 +485,7 @@ function assertNotError(func, funcArgs, expectedErrorName, willOutputErrorToRepo
 
   // This method cannot be complemented.
   /**
-   * @param {class} executingTestClass
+   * @param {object} executingTestClass
    * @param {string[]} arraySkippingTest
    * @return {string[]}
   */

@@ -278,12 +278,12 @@ class Test_TestGas{
   test_arrayLength_1_1(){
     const actual = ["t", "e", "s", "t"];
     const expected = ["g", "a", "p", "s"];
-    tester.assertEquals(actual, expected);
+    tester.assertEqualsArrayLength(actual, expected);
   }
   test_arrayLength_1_2(){
     const actual = ["t", "e", "s", "t"];
     const expected = ["t", "e", "s", "t", "g"];
-    tester.assertEquals(actual, expected);
+    tester.assertEqualsArrayLength(actual, expected);
   }
 }
 function execute_Test_utilForTestGas(){
@@ -328,17 +328,17 @@ class Test_TestGas{
   test_arrayLength_1_1(){
     const actual = ["t", "e", "s", "t"];
     const expected = ["t", "e", "s", "t"];
-    tester.assertEquals(actual, expected);
+    tester.assertEqualsArrayItems(actual, expected);
   }
   test_arrayLength_1_2(){
     const actual = ["t", "e", "s", "t"];
     const expected = ["t", "e", "s", "t", "g"];
-    tester.assertEquals(actual, expected);
+    tester.assertEqualsArrayItems(actual, expected);
   }
   test_arrayLength_1_3(){
   const actual = ["t", "e", "s", "t"];
   const expected = ["t", "s", "e", "t"];
-  tester.assertEquals(actual, expected);
+  tester.assertEqualsArrayItems(actual, expected);
   }
 }
 function execute_Test_utilForTestGas(){
@@ -379,12 +379,12 @@ class Test_TestGas{
   test_plus_1_1(){
     const actual = 1 + 2;
     const expected = 4;
-    tester.assertEquals(actual, expected);
+    tester.assertNotEquals(actual, expected);
   }
   test_plus_1_2(){
     const actual = 2 + 3;
     const expected = 5;
-    tester.assertEquals(actual, expected);
+    tester.assertNotEquals(actual, expected);
   }
 }
 function execute_Test_utilForTestGas(){
@@ -433,7 +433,7 @@ let tester = createExecutor();
 class Test_TestGas{
   test_arrayLengthIsOneToItem_2_3(){
     const arrays = ["aaa", "bbb", "ccc", "vvv", "wwww", "xxxxx"];
-    tester.assertNotError(arrayLengthIsOneToItem, [arrays], RangeError);
+    tester.assertError(arrayLengthIsOneToItem, [arrays], RangeError);
   }
 }
 function execute_Test_utilForTestGas(){

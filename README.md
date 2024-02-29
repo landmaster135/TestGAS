@@ -8,7 +8,7 @@ The `TestGAS` library makes it easy to write small tests on `Google Apps Script`
 
 ## Import
 
-You can import this library by this script ID.
+You can import this library with this script ID.
 
 ```
 1CRjWWWYfjD7WzPl43RB1BiD7XDLJmR03eEpXr2LMh75yAq5qMlczOIfm
